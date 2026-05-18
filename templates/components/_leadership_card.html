@@ -1,0 +1,13 @@
+<!-- Reusable Leadership Card Component -->
+<div class="leadership-card">
+    <div class="card-img-rect clickable-img" onclick="openModal(this)">
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="{{ name }}">
+        {% else %}
+            <div class="img-placeholder">IMAGE</div>
+        {% endif %}
+    </div>
+    <span class="role">{{ role }}</span>
+    <h4>{{ name }}</h4>
+    <p class="mandate">{{ mandate }}</p>
+</div>

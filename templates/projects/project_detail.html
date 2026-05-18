@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Project Details - FARD{% endblock %}
+
+{% block content %}
+<article class="project-detail">
+    <section class="detail-hero">
+        <div class="container">
+            <a href="/projects" class="back-link">← Back to Projects</a>
+            <h1 id="projectTitle">Project Detail</h1>
+            <p id="projectTagline" class="tagline">Deep-dive into our initiatives.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="detail-layout">
+            <div class="detail-main">
+                <div class="detail-section">
+                    <h2>The Challenge</h2>
+                    <p id="projectChallenge">Detailed description of the problem being addressed.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Our Solution</h2>
+                    <p id="projectSolution">Detailed description of the technology or methodology implemented.</p>
+                    <div class="image-placeholder large" style="margin-top: 1.5rem;">PROJECT VISUAL</div>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Impact to Date</h2>
+                    <ul id="projectImpact">
+                        <li>Metric 1</li>
+                        <li>Metric 2</li>
+                        <li>Metric 3</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="detail-sidebar">
+                <div class="sidebar-box">
+                    <h3>Project Status</h3>
+                    <p id="projectStatus" class="status-active">Active / Scaling</p>
+                </div>
+                <div class="sidebar-box">
+                    <h3>Technology Used</h3>
+                    <ul id="projectTech" class="tech-list">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+                <div class="sidebar-box promo-box">
+                    <h3>Want to support?</h3>
+                    <p>Help us scale this project to more counties.</p>
+                    <a href="/get-involved#partner" class="btn btn-secondary btn-block">Partner With Us</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Simple mock project data for demonstration
+    const projectData = {
+        'ai-crop': {
+            title: 'AI-Driven Crop Diagnosis',
+            tagline: 'Smartphone-based computer vision for rural farmers.',
+            challenge: 'Smallholder farmers often lose up to 40% of their yields to pests and diseases that go undiagnosed or are misidentified. Access to expert agronomists is limited and expensive in remote areas.',
+            solution: 'We developed a lightweight AI model that runs locally on smartphones. Farmers simply take a photo of a diseased leaf, and the app provides an immediate diagnosis and organic treatment recommendation based on our agroecological principles.',
+            impact: [
+                '5,000+ diagnoses performed in the last 6 months.',
+                '30% average yield increase for participating farmers.',
+                'Reduced agrochemical misuse by 50%.'
+            ],
+            tech: ['TensorFlow Lite', 'Flutter', 'Cloud Vision API', 'Python (FastAPI)'],
+            status: 'Active / Scaling'
+        },
+        'bsf': {
+            title: 'Black Soldier Fly (BSF) Circular Economy',
+            tagline: 'Closing the loop on organic waste.',
+            challenge: 'Organic waste management in markets and farms often leads to environmental pollution, while high-quality livestock feed is becoming prohibitively expensive for smallholders.',
+            solution: 'We implement BSF production systems that consume organic waste and convert it into high-protein larvae for poultry and fish feed. The residue (frass) serves as a potent organic fertilizer, completing the circular nutrient loop.',
+            impact: [
+                '10 tons of organic waste diverted from landfills monthly.',
+                'Livestock feed costs reduced by 40% for 200+ households.',
+                'Creation of 20+ "green jobs" for local youth.'
+            ],
+            tech: ['Environmental Sensors', 'IoT Monitoring', 'Circular Design Systems'],
+            status: 'Pilot Phase'
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('project') || 'ai-crop';
+        const project = projectData[projectId];
+
+        if (project) {
+            document.title = `${project.title} - FARD`;
+            document.getElementById('projectTitle').innerText = project.title;
+            document.getElementById('projectTagline').innerText = project.tagline;
+            document.getElementById('projectChallenge').innerText = project.challenge;
+            document.getElementById('projectSolution').innerText = project.solution;
+            document.getElementById('projectStatus').innerText = project.status;
+
+            const impactList = document.getElementById('projectImpact');
+            impactList.innerHTML = '';
+            project.impact.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                impactList.appendChild(li);
+            });
+
+            const techList = document.getElementById('projectTech');
+            techList.innerHTML = '';
+            project.tech.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                techList.appendChild(li);
+            });
+        }
+    });
+</script>
+{% endblock %}

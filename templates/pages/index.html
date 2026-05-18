@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - FARD | Agriculture & AI Innovation{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Cultivating the Future: Where AI Meets Agroecology</h1>
+        <p>Empowering rural communities through sustainable technology and data-driven agricultural development.</p>
+        <div class="hero-btns">
+            <a href="/portals/volunteer_form.html" class="btn btn-primary">Join the Movement</a>
+            <a href="/portals/partner_pitch.html" class="btn btn-secondary">Partner With Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Metrics Section -->
+<section class="impact-metrics">
+    <div class="container">
+        <h2>Our Impact</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="counter" data-target="5000">0</span>+
+                <p>Farmers Onboarded</p>
+            </div>
+            <div class="metric-card">
+                <span class="counter" data-target="1200">0</span>+
+                <p>Youth Trained in STEAM</p>
+            </div>
+            <div class="metric-card">
+                <span class="counter" data-target="150">0</span>+
+                <p>Cooperatives Engaged</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The FARD Advantage -->
+<section class="fard-advantage">
+    <div class="container">
+        <h2>The FARD Advantage</h2>
+        <div class="advantage-flex">
+            <div class="advantage-text">
+                <h3>Bridging Technology & Tradition</h3>
+                <p>FARD serves as a unique B2B bridge, connecting cutting-edge AI and data analytics with grassroots agroecology. We don't just provide tools; we cultivate sustainable ecosystems where technology enhances traditional wisdom to ensure food security and economic resilience.</p>
+            </div>
+            <div class="advantage-image">
+                <!-- Placeholder for an image or graphic -->
+                <div class="image-placeholder">AI & AGRO IMAGE</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Simple counter animation
+    document.querySelectorAll('.counter').forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const speed = 200; // The lower the slower
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+</script>
+{% endblock %}

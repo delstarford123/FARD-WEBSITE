@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Farmer Intake - FARD | Join the Network{% endblock %}
+
+{% block content %}
+<section class="form-hero">
+    <div class="container text-center">
+        <h1>Farmer & Cooperative Intake</h1>
+        <div class="fee-notice">
+            <p><strong>Join the FARD movement!</strong> To officially register your cooperative or as an individual agripreneur, a one-time non-refundable fee of <strong>KSh 1,000</strong> is required, followed by a monthly subscription of <strong>KSh 500</strong>. <em>Note: Active participation is required; failure to remit subscriptions for 3 consecutive months may result in account deactivation.</em></p>
+        </div>
+        <p>Register your group to access precision agriculture tools, BSF systems, and direct market linkages.</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="form-container farmer-intake">
+            <form id="farmerForm" action="/submit-farmer" method="post">
+                <div class="form-group">
+                    <label for="coop_name">Cooperative / SACCO / Group Name *</label>
+                    <input type="text" id="coop_name" name="coop_name" placeholder="e.g., Mumias Progressive Farmers" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="location">Location (Ward/Sub-county) *</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member_count">Number of Active Members *</label>
+                        <input type="number" id="member_count" name="member_count" min="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="crops">Primary Crops / Livestock *</label>
+                    <input type="text" id="crops" name="crops" placeholder="Maize, Sugarcane, Dairy, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label>What are your biggest challenges? (Select all that apply)</label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="challenges" value="market"> Low Market Prices</label>
+                        <label><input type="checkbox" name="challenges" value="pests"> Pests & Diseases</label>
+                        <label><input type="checkbox" name="challenges" value="soil"> Soil Infertility</label>
+                        <label><input type="checkbox" name="challenges" value="waste"> Crop Waste Management</label>
+                        <label><input type="checkbox" name="challenges" value="credit"> Access to Credit</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="interests">Interested In:</label>
+                    <select id="interests" name="interests" multiple class="multi-select">
+                        <option value="ai">AI Crop Diagnosis</option>
+                        <option value="bsf">BSF Circular Economy</option>
+                        <option value="markets">Direct Market Access</option>
+                        <option value="training">STEAM Youth Training</option>
+                    </select>
+                    <small>Hold Ctrl (Cmd) to select multiple</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </form>
+            <div id="formFeedback" class="hidden"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+{% endblock %}

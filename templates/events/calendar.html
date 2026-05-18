@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Events Calendar - FARD{% endblock %}
+
+{% block content %}
+<section class="events-hero">
+    <div class="container text-center">
+        <h1>Community Mobilization</h1>
+        <p>Join our upcoming barazas, sports tournaments, and tech-camps.</p>
+    </div>
+</section>
+
+<section class="events-calendar">
+    <div class="container">
+        <div id="calendar-placeholder" class="calendar-view">
+            <!-- FullCalendar.js would go here -->
+            <div class="calendar-mock">
+                <div class="calendar-header">May 2026</div>
+                <div class="calendar-grid">
+                    <div class="event-day">15: STEAM Coding Camp</div>
+                    <div class="event-day">22: BSF Training Workshop</div>
+                    <div class="event-day">30: Farmers Sports Day</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Executive Dashboard - FARD{% endblock %}
+
+{% block content %}
+<div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+        <h3>Admin Panel</h3>
+        <ul>
+            <li><a href="/dashboards/admin/financials.html">Financials (60/40)</a></li>
+            <li><a href="/dashboards/admin/member_mgmt.html">Member Management</a></li>
+            <li><a href="/dashboards/admin/reports.html">System Reports</a></li>
+        </ul>
+    </aside>
+    <main class="dashboard-content">
+        <h1>Wing A Executive Dashboard</h1>
+        <div class="stats-overview">
+            <div class="stat-card">
+                <h4>Total Revenue</h4>
+                <p>$0.00</p>
+            </div>
+            <div class="stat-card">
+                <h4>Grant Allocations</h4>
+                <p>40% Reserved</p>
+            </div>
+            <div class="stat-card">
+                <h4>Active CBOs</h4>
+                <p>23 Members</p>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

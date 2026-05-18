@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Projects - FARD | Innovation in Action{% endblock %}
+
+{% block content %}
+<section class="projects-hero">
+    <div class="container text-center">
+        <h1>Innovation in Action</h1>
+        <p>Explore our active initiatives bridging the gap between cutting-edge technology and grassroots agriculture.</p>
+    </div>
+</section>
+
+<section class="projects-grid-section">
+    <div class="container">
+        <div class="project-grid">
+            <!-- Project 1: AI Crop Diagnosis -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span class="tag">AI & Data</span>
+                    <div class="image-placeholder">AI CROP TOOL</div>
+                </div>
+                <div class="project-info">
+                    <h3>AI-Driven Crop Diagnosis</h3>
+                    <p>Empowering farmers with real-time pest and disease identification using smartphone-based computer vision.</p>
+                    <a href="/projects/project_detail.html?project=ai-crop" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Project 2: BSF Systems -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span class="tag">Circular Economy</span>
+                    <div class="image-placeholder">BSF SYSTEM</div>
+                </div>
+                <div class="project-info">
+                    <h3>Black Soldier Fly (BSF) Circular Economy</h3>
+                    <p>Transforming organic waste into high-quality protein for livestock and organic fertilizer for crops.</p>
+                    <a href="/projects/project_detail.html?project=bsf" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Project 3: STEAM Camps -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span class="tag">Youth</span>
+                    <div class="image-placeholder">STEAM CAMP</div>
+                </div>
+                <div class="project-info">
+                    <h3>STEAM Youth Coding Camps</h3>
+                    <p>Equipping the next generation of rural leaders with coding, robotics, and digital agriculture skills.</p>
+                    <a href="/projects/project_detail.html?project=steam" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Data Dashboards -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span class="tag">B2B Bridge</span>
+                    <div class="image-placeholder">DATA DASHBOARD</div>
+                </div>
+                <div class="project-info">
+                    <h3>Market Intelligence Dashboards</h3>
+                    <p>Providing cooperatives with real-time market data to ensure fair pricing and efficient supply chains.</p>
+                    <a href="/projects/project_detail.html?project=market-data" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

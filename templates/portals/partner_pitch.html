@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Partner Pitch - FARD | Strategic Engagement{% endblock %}
+
+{% block content %}
+<section class="form-hero">
+    <div class="container text-center">
+        <h1>Strategic Partnership Pitch</h1>
+        <p>FARD bridges the gap between commercial technology and non-profit impact. Let's build a sustainable future together.</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="form-container partner-pitch">
+            <div class="pitch-info">
+                <h3>Our 60/40 Revenue Structure</h3>
+                <p>We pride ourselves on a unique sustainability model where 60% of commercial revenue from our tech tools directly funds our 40% non-profit community grants. Partnerships help us scale this impact.</p>
+            </div>
+
+            <form id="partnerForm" action="/submit-partner" method="post">
+                <div class="form-group">
+                    <label for="org_name">Organization Name *</label>
+                    <input type="text" id="org_name" name="org_name" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="contact_person">Contact Person *</label>
+                        <input type="text" id="contact_person" name="contact_person" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_type">Partnership Type *</label>
+                        <select id="partner_type" name="partner_type" required>
+                            <option value="">-- Select Type --</option>
+                            <option value="donor">Grant Donor / NGO</option>
+                            <option value="county">County Government</option>
+                            <option value="private">Private Tech Sector</option>
+                            <option value="research">Academic / Research Institution</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="initiative">Proposed Initiative / Area of Interest *</label>
+                    <textarea id="initiative" name="initiative" rows="4" placeholder="e.g., Scaling AI crop diagnosis in Mumias North..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="commitment">Expected Commitment / Resource Sharing</label>
+                    <textarea id="commitment" name="commitment" rows="2" placeholder="Funding, expertise, infrastructure, etc."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Submit Pitch</button>
+            </form>
+            <div id="formFeedback" class="hidden"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+{% endblock %}

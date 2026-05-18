@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - FARD | Organizational Profile & Prospectus{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+{% include 'components/_hero_banner.html' with context %}
+{% block banner_title %}Organizational Profile{% endblock %}
+
+<section class="profile-header bg-white">
+    <div class="container">
+        <div class="prospectus-meta">
+            <p><strong>Location:</strong> Off Kakamega - Mumias Road | Mahiakalo Ward, Kakamega Central, Kenya</p>
+            <p><strong>Status:</strong> Registered Community Based Organization (CBO)</p>
+            <p><strong>Founding Partners:</strong> Delstarford Works (DSW) & Farmerman Systems Group (FS)</p>
+        </div>
+    </div>
+</section>
+
+<section class="executive-summary">
+    <div class="container">
+        <h2>Executive Summary</h2>
+        <div class="content-box">
+            <p>FARD is a pioneering Community-Based Organization (CBO) established in Kakamega County to transform the local agricultural landscape. Formed as a strategic partnership between <strong>Delstarford Works (DSW)</strong>—experts in AI-powered software—and <strong>Farmerman Systems Group (FS)</strong>—experts in grassroots agronomy and community mobilization—FARD serves as a central hub designed to empower rural communities.</p>
+            <p>By leveraging agricultural intelligence, smart farming technologies, and robust market linkages, FARD bridges the gap between digital innovation and on-ground farming, aiming to transition smallholder farmers from subsistence farming to profitable, resilient agribusinesses.</p>
+        </div>
+    </div>
+</section>
+
+<section class="mission-vision bg-white">
+    <div class="container">
+        <div class="mv-grid">
+            <div class="mv-card">
+                <h3>Our Vision</h3>
+                <p>To foster a thriving, resilient ecosystem for agripreneurs in Kakamega County through agricultural intelligence, smart farming technologies, and sustainable agroecology.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Our Mission</h3>
+                <p>To act as an operational and strategic bridge that empowers rural communities by transitioning smallholder farmers from subsistence farming to profitable agribusinesses, leveraging data-driven market linkages and STEAM inclusion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="strategic-pillars">
+    <div class="container">
+        <h2>Our Strategic Pillars</h2>
+        <div class="pillars-prospectus-grid">
+            <div class="pillar-mini-card">
+                <h4>1. Agriculture & Agribusiness</h4>
+                <p>Promoting sustainable, climate-resilient farming practices that protect Kakamega's ecosystem while maximizing yields.</p>
+            </div>
+            <div class="pillar-mini-card">
+                <h4>2. Data-Driven Market Linkage</h4>
+                <p>Connecting farmer data directly to market demand, eliminating exploitative middlemen and ensuring fair pricing.</p>
+            </div>
+            <div class="pillar-mini-card">
+                <h4>3. Market Intelligence</h4>
+                <p>Providing AI-driven insights, pricing trends, and weather data to facilitate informed planting and selling decisions.</p>
+            </div>
+            <div class="pillar-mini-card">
+                <h4>4. Precision Agriculture</h4>
+                <p>Introducing technology-driven farming techniques to optimize inputs and maximize outputs.</p>
+            </div>
+            <div class="pillar-mini-card">
+                <h4>5. STEAM Inclusion</h4>
+                <p>Socioeconomic empowerment of women and youth by integrating STEAM education for the next gen of agripreneurs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partnership-model bg-white">
+    <div class="container">
+        <h2>The Partnership Model</h2>
+        <div class="model-flex">
+            <div class="model-box">
+                <h4>Delstarford Works (DSW)</h4>
+                <p>Provides the technological backbone, leading the design and deployment of AI-powered software solutions, data infrastructure, and digital tools tailored for rural communities.</p>
+            </div>
+            <div class="model-box">
+                <h4>Farmerman Systems Group (FS)</h4>
+                <p>Drives the grassroots execution, leading community mobilization, cooperative engagement, system implementation, and on-ground agroecology training.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership Section -->
+<section class="leadership">
+    <div class="container">
+        <h2>Leadership & Governance</h2>
+        
+        <div class="governance-notice">
+            <p>FARD is governed by a democratically elected Management Committee and a specialized Board of Directors, bringing together 23 founding members. We serve structured <strong>Two-Year Terms</strong> to ensure fresh, innovative leadership.</p>
+        </div>
+
+        <div class="wing-section">
+            <h3>Wing A: Executive Management Committee</h3>
+            <p class="section-desc">Responsible for the day-to-day administration, legal compliance, and overarching strategic execution of the CBO.</p>
+            <div class="leadership-grid">
+                {% with name="Sobani Ayanda", role="Chairperson", mandate="The principal executive officer of FARD (representing FS). Presides over all board and general meetings.", image_url=url_for('static', filename='images/team/farmerman.jpeg') %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Delstarford Isaiah", role="Vice Chairperson", mandate="Secondary executive officer (representing DSW). Chief technology strategist overseeing AI-powered software integration.", image_url=url_for('static', filename='images/team/founder1.jpeg') %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Charity Wanjiro", role="Secretary", mandate="Administrative and compliance anchor. Manages official correspondence, minutes, and the member register.", image_url=url_for('static', filename='images/team/Charity Wanjiro.jpeg') %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Luke Amolo", role="Treasurer", mandate="Chief financial custodian. Manages the FARD CBO bank account and oversees the 60/40 revenue implementation." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Caren Sobani", role="Community Strategist", mandate="The bridge to the grassroots. Designs engagement strategies for local cooperatives and SACCOs." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+            </div>
+        </div>
+
+        <div class="wing-section">
+            <h3>Wing B: Board of Directors</h3>
+            <p class="section-desc">Oversees specialized departments ensuring every pillar is expertly managed.</p>
+            <div class="leadership-grid">
+                {% with name="Collins Rao", role="Director of Health", mandate="Ensures occupational safety and promotes health awareness programs.", image_url=url_for('static', filename='images/team/COLLINS.jpeg') %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Brian Joel Onyango", role="Director of Marketing", mandate="Builds brand visibility and attracts B2B partners, NGOs, and government grants." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Elder John Alaak", role="Director of Food & Nutrition", mandate="Ensures household food security and promotes high-nutrition indigenous crops." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Dr. Ferdinand Lubobi", role="Director of Research", mandate="Leads data collection and scientific intelligence for AI systems." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Peter Wekesa / Brian Asuga", role="Director of Children's Activities", mandate="Drives STEAM inclusion through tech-camps and agricultural coding clubs." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Chris Marvin", role="Director of Agriculture", mandate="Lead agronomist implementing precision farming techniques." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Christine", role="Director of Disability", mandate="Ensures FARD's programs and software are accessible to PWDs." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Bobby Ashley", role="Director of Games & Sports", mandate="Uses sports as a mobilization tool to engage youth." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Goffrey Otieno", role="Director of Community Mobilization", mandate="Leads village-level barazas and registers new cooperatives." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Omar Kasera", role="Director of Software Dev", mandate="Technical project manager building AI software and data platforms." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+
+                {% with name="Isaiah Okuna", role="Director of Business", mandate="Focuses on monetization and structures B2B contracts for sustainable revenue." %}
+                    {% include 'components/_leadership_card.html' %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="financial-model bg-white">
+    <div class="container">
+        <h2>Financial & Operational Model</h2>
+        <div class="content-box">
+            <p>FARD operates a highly transparent, dual-purpose financial structure designed to attract grants while sustaining technological innovation:</p>
+            <div class="model-grid">
+                <div class="model-item">
+                    <h4>Non-Profit Grant Management</h4>
+                    <p>FARD acts as the funding vehicle for philanthropic grants, NGO partnerships, and county funds. 100% of these funds are utilized strictly for community operations, mobilization, and stipends.</p>
+                </div>
+                <div class="model-item">
+                    <h4>The 60/40 Revenue Share</h4>
+                    <p>For monetized commercial projects executed jointly by DSW and FS, revenues are split: <strong>60%</strong> remains within the CBO for community development, while <strong>40%</strong> is distributed equally to DSW (20%) and FS (20%) for growth and technology overhead.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="accordion">
+            <details class="faq-item">
+                <summary>How much does it cost to join FARD?</summary>
+                <div class="faq-content">
+                    <p>To officially register as a member (cooperative or individual), there is a one-time non-refundable registration fee of <strong>KSh 1,000</strong>. This is followed by a monthly subscription fee of <strong>KSh 500</strong> which supports our community initiatives and tech maintenance.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>What happens if I miss my monthly subscription?</summary>
+                <div class="faq-content">
+                    <p>We value active participation. If subscriptions remain unpaid for 3 consecutive months, the account may be deactivated until the arrears are cleared. We encourage open communication if there are financial difficulties.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>What do my fees support?</summary>
+                <div class="faq-content">
+                    <p>Membership fees go directly toward maintaining our AI tools, managing our circular economy projects like BSF, and providing training resources to our youth and farming communities through our 60/40 non-profit model.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+{% endblock %}

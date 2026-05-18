@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - FARD | Join the Movement{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-header text-center">
+                <h2>Create Account</h2>
+                <p>Join the network of digital agripreneurs and cooperatives.</p>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('register') }}" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name / Organization Name *</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Mumias Progressive Farmers" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg_type">Registration Type *</label>
+                    <select id="reg_type" name="reg_type" required>
+                        <option value="farmer">Cooperative / Farmer Group</option>
+                        <option value="volunteer">Volunteer / Field Operator</option>
+                        <option value="agripreneur">Individual Agripreneur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Min 6 characters" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+
+            <div class="auth-links text-center">
+                <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+                <p><small>By registering, you agree to FARD's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

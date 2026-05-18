@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Get Involved - FARD | Partner, Volunteer, or Register{% endblock %}
+
+{% block content %}
+<section class="get-involved-intro">
+    <div class="container text-center">
+        <h1>Join the FARD Movement</h1>
+        <p>Whether you're a donor, a volunteer, or a farmer, there's a place for you in our ecosystem.</p>
+    </div>
+</section>
+
+<section class="involved-sections">
+    <div class="container">
+        <!-- Partner Portal -->
+        <div class="involved-card" id="partner">
+            <h2>Partner & Donor Portal</h2>
+            <p>For NGOs, county governments, and investors. We operate on a transparent <strong>60/40 revenue structure</strong> for sustainable grant management.</p>
+            <a href="{{ url_for('partner_pitch') }}" class="btn btn-secondary">Inquire About Partnership</a>
+        </div>
+
+        <!-- Volunteer Hub -->
+        <div class="involved-card" id="volunteer">
+            <h2>Volunteer Hub</h2>
+            <p>Calling all field operators, tech contributors, and community mobilizers. Help us bridge the gap on the ground.</p>
+            <a href="{{ url_for('volunteer_form') }}" class="btn btn-primary">Apply as Volunteer</a>
+        </div>
+
+        <!-- Farmer Registration -->
+        <div class="involved-card" id="farmer">
+            <h2>Farmer Registration</h2>
+            <p>Are you a local cooperative or SACCO? Join our data-driven network to access better markets and tech tools.</p>
+            <a href="{{ url_for('farmer_intake') }}" class="btn btn-primary">Register Your Cooperative</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

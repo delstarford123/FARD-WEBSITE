@@ -1,0 +1,20 @@
+<!-- Main navigation header -->
+<nav>
+    <div class="container nav-container">
+        <a href="{{ url_for('index') }}" class="logo">FARD</a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('pillars') }}">Pillars</a></li>
+            <li><a href="{{ url_for('projects') }}">Projects</a></li>
+            <li><a href="{{ url_for('get_involved') }}">Get Involved</a></li>
+            <li><a href="{{ url_for('transparency') }}">Transparency</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% if session.get('user_id') %}
+                <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}" class="btn-login">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

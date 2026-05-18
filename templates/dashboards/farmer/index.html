@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Farmer Dashboard - FARD{% endblock %}
+
+{% block content %}
+<div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+        <h3>Farmer Portal</h3>
+        <ul>
+            <li><a href="/dashboards/farmer/market_prices.html">Market Intelligence</a></li>
+            <li><a href="/dashboards/farmer/crop_diagnosis.html">AI Crop Diagnosis</a></li>
+            <li><a href="/dashboards/farmer/resources.html">Training Materials</a></li>
+        </ul>
+    </aside>
+    <main class="dashboard-content">
+        <h1>Welcome, [Cooperative Name]</h1>
+        <div class="dashboard-tools">
+            <div class="tool-card">
+                <h3>AI Crop Health</h3>
+                <p>Upload a photo to detect diseases instantly.</p>
+                <a href="/dashboards/farmer/crop_diagnosis.html" class="btn btn-primary">Scan Crop</a>
+            </div>
+            <div class="tool-card">
+                <h3>Live Prices</h3>
+                <p>Real-time data from Delstarford Works.</p>
+                <a href="/dashboards/farmer/market_prices.html" class="btn btn-secondary">View Prices</a>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

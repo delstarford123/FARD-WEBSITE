@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Volunteer Application - FARD{% endblock %}
+
+{% block content %}
+<section class="form-hero">
+    <div class="container text-center">
+        <h1>Volunteer With Us</h1>
+        <div class="fee-notice">
+            <p><strong>Join the FARD movement!</strong> To officially register your cooperative or as an individual agripreneur, a one-time non-refundable fee of <strong>KSh 1,000</strong> is required, followed by a monthly subscription of <strong>KSh 500</strong>. <em>Note: Active participation is required; failure to remit subscriptions for 3 consecutive months may result in account deactivation.</em></p>
+        </div>
+        <p>Your skills can help transform rural agriculture. Join our team of dedicated change-makers.</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container">
+        <div class="form-container">
+            <form id="volunteerForm" action="/submit-volunteer" method="post">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+254 7..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expertise">Primary Area of Expertise *</label>
+                        <select id="expertise" name="expertise" required>
+                            <option value="">-- Select One --</option>
+                            <option value="field">Field Operations & Agroecology</option>
+                            <option value="tech">Technology & AI Development</option>
+                            <option value="mobilizer">Community Mobilization</option>
+                            <option value="admin">Administration & Comms</option>
+                            <option value="health">Community Health</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Briefly describe your relevant experience (max 500 characters)</label>
+                    <textarea id="experience" name="experience" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="availability">Availability</label>
+                    <select id="availability" name="availability">
+                        <option value="full">Full-time</option>
+                        <option value="part">Part-time (Weekends/Evenings)</option>
+                        <option value="casual">Casual / Project-based</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to FARD's volunteer code of conduct and privacy policy.</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+            <div id="formFeedback" class="hidden"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+{% endblock %}

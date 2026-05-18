@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}News & Updates - FARD{% endblock %}
+
+{% block content %}
+<section class="news-hero">
+    <div class="container text-center">
+        <h1>News & Impact Stories</h1>
+        <p>Documenting our journey and the successes of our community.</p>
+    </div>
+</section>
+
+<section class="news-feed">
+    <div class="container">
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-img-placeholder">IMAGE</div>
+                <div class="news-body">
+                    <span class="date">April 25, 2026</span>
+                    <h3>Success of the new BSF facility</h3>
+                    <p>The recently launched Black Soldier Fly facility in Mumias is already serving 50+ households...</p>
+                    <a href="/blog_and_news/article_detail.html" class="read-more">Read Full Story →</a>
+                </div>
+            </article>
+            <!-- More articles... -->
+        </div>
+    </div>
+</section>
+{% endblock %}
