@@ -7,13 +7,23 @@
 
     <!-- SEO & Open Graph Tags -->
     <title>{% block title %}FARD | Food, Artificial Intelligence Research & Development{% endblock %}</title>
-    <meta name="description" content="FARD is a Kenya-based CBO merging AI technology with smart agriculture to empower rural communities. Discover our agroecology initiatives and sustainable development goals.">
-    <meta name="keywords" content="AI Agriculture Kenya, Smart Farming, Community Empowerment, Agroecology, Food Security, FARD">
-    <meta property="og:title" content="FARD - Bridging AI and Sustainable Agriculture">
-    <meta property="og:description" content="Empowering Kenyan communities through technology-driven agricultural innovation.">
-    <meta property="og:image" content="{{ url_for('static', filename='images/branding/logo_og.png') }}">
+    <meta name="description" content="FARD: FOOD, ARTIFICIAL INTELLIGENCE, RESEARCH FOR COMMUNITY DEVELOPMENT. Empowering rural communities through sustainable technology and smart agriculture.">
+    <meta name="keywords" content="AI Agriculture, FARD, Smart Farming Kenya, Community Development, Agroecology, Food Security AI">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="FARD - Food, Artificial Intelligence Research & Development">
+    <meta property="og:description" content="FOOD, ARTIFICIAL INTELLIGENCE, RESEARCH FOR COMMUNITY DEVELOPMENT. Bridging the gap between technology and sustainable grassroots impact.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/branding/FINAL BEST LOGO.png', _external=True) }}">
+    <meta property="og:site_name" content="FARD">
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.url }}">
+    <meta name="twitter:title" content="FARD | AI Research for Community Development">
+    <meta name="twitter:description" content="FOOD, ARTIFICIAL INTELLIGENCE, RESEARCH FOR COMMUNITY DEVELOPMENT. Innovating for a sustainable future.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/branding/FINAL BEST LOGO.png', _external=True) }}">
 
     <!-- Tailwind CSS (CDN for Draft) -->
     <script src="https://cdn.tailwindcss.com"></script>
