@@ -3,53 +3,78 @@
 {% block title %}Register - FARD | Join the Movement{% endblock %}
 
 {% block content %}
-<section class="auth-section">
-    <div class="container">
-        <div class="auth-container">
-            <div class="auth-header text-center">
-                <h2>Create Account</h2>
-                <p>Join the network of digital agripreneurs and cooperatives.</p>
+<section class="min-h-[90vh] flex items-center justify-center bg-slate-50 py-24">
+    <div class="max-w-xl w-full px-4 sm:px-6">
+        <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden group">
+            <!-- Decorative Accent -->
+            <div class="absolute -top-12 -left-12 w-32 h-32 bg-leaf/5 blur-3xl rounded-full group-hover:bg-leaf/10 transition-colors"></div>
+            
+            <div class="text-center relative z-10 mb-12">
+                <div class="w-20 h-20 bg-leaf/10 rounded-3xl flex items-center justify-center mx-auto mb-8 text-leaf">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Create Account</h2>
+                <p class="text-slate-500 mt-3 text-sm">Join the network of digital agripreneurs and cooperatives.</p>
             </div>
             
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
+                    <div class="mb-8 space-y-3">
+                        {% for category, message in messages %}
+                            <div class="p-4 rounded-xl text-sm font-bold flex items-center space-x-3 {% if category == 'error' %}bg-red-50 text-red-600 border border-red-100{% else %}bg-tech/10 text-tech border border-tech/20{% endif %}">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             {% endwith %}
 
-            <form action="{{ url_for('register') }}" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name / Organization Name *</label>
-                    <input type="text" id="name" name="name" placeholder="e.g., Mumias Progressive Farmers" required>
+            <form action="{{ url_for('register') }}" method="POST" class="space-y-6 relative z-10">
+                <div class="space-y-2">
+                    <label for="name" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Full Name / Organization *</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Mumias Progressive Farmers" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
                 
-                <div class="form-group">
-                    <label for="reg_type">Registration Type *</label>
-                    <select id="reg_type" name="reg_type" required>
+                <div class="space-y-2">
+                    <label for="reg_type" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Registration Type *</label>
+                    <select id="reg_type" name="reg_type" required
+                            class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all appearance-none cursor-pointer">
                         <option value="farmer">Cooperative / Farmer Group</option>
                         <option value="volunteer">Volunteer / Field Operator</option>
                         <option value="agripreneur">Individual Agripreneur</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                <div class="space-y-2">
+                    <label for="email" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password *</label>
-                    <input type="password" id="password" name="password" placeholder="Min 6 characters" required>
+                <div class="space-y-2">
+                    <label for="password" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Min 6 characters" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-forest hover:bg-forest/90 text-white font-bold py-5 rounded-2xl shadow-xl shadow-forest/20 transition-all transform hover:-translate-y-1">
+                        Create My Account
+                    </button>
+                </div>
             </form>
 
-            <div class="auth-links text-center">
-                <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
-                <p><small>By registering, you agree to FARD's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            <div class="mt-12 pt-8 border-t border-slate-100 text-center relative z-10 space-y-4">
+                <p class="text-slate-500 text-sm">
+                    Already have an account? 
+                    <a href="{{ url_for('login') }}" class="text-tech font-bold hover:text-forest transition-colors underline decoration-2 underline-offset-4">Login here</a>
+                </p>
+                <p class="text-[10px] text-slate-400 leading-relaxed uppercase tracking-tighter font-bold">
+                    By registering, you agree to FARD's 
+                    <a href="#" class="hover:text-forest">Terms of Service</a> and 
+                    <a href="#" class="hover:text-forest">Privacy Policy</a>.
+                </p>
             </div>
         </div>
     </div>

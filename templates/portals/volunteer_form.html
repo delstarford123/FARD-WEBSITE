@@ -3,36 +3,73 @@
 {% block title %}Volunteer Application - FARD{% endblock %}
 
 {% block content %}
-<section class="form-hero">
-    <div class="container text-center">
-        <h1>Volunteer With Us</h1>
-        <div class="fee-notice">
-            <p><strong>Join the FARD movement!</strong> To officially register your cooperative or as an individual agripreneur, a one-time non-refundable fee of <strong>KSh 1,000</strong> is required, followed by a monthly subscription of <strong>KSh 500</strong>. <em>Note: Active participation is required; failure to remit subscriptions for 3 consecutive months may result in account deactivation.</em></p>
-        </div>
-        <p>Your skills can help transform rural agriculture. Join our team of dedicated change-makers.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Volunteer <span class="text-tech">With Us</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Your skills can help transform rural agriculture. Join our team of dedicated change-makers and build local resilience.
+        </p>
     </div>
 </section>
 
-<section class="form-section">
-    <div class="container">
-        <div class="form-container">
-            <form id="volunteerForm" action="/submit-volunteer" method="post">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+<!-- Form Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Fee Notice Card -->
+        <div class="bg-white p-8 rounded-3xl border-l-8 border-leaf shadow-xl mb-12 transform hover:scale-[1.01] transition-transform">
+            <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-leaf/10 rounded-full flex items-center justify-center text-leaf flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Member Registration</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        To officially register, a one-time non-refundable fee of <strong class="text-forest">KSh 1,000</strong> is required, followed by a monthly subscription of <strong class="text-forest">KSh 500</strong>.
+                    </p>
+                    <p class="text-slate-400 text-xs mt-2 italic">
+                        Note: Failure to remit subscriptions for 3 consecutive months may result in account deactivation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="bg-white p-10 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100">
+            <form id="volunteerForm" action="/volunteer-form" method="post" class="space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label for="name" class="text-xs font-bold text-forest uppercase tracking-widest">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    <div class="space-y-2">
+                        <label for="email" class="text-xs font-bold text-forest uppercase tracking-widest">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+254 7..." required>
+                    <div class="space-y-2">
+                        <label for="phone" class="text-xs font-bold text-forest uppercase tracking-widest">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+254 7..." required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
-                    <div class="form-group">
-                        <label for="expertise">Primary Area of Expertise *</label>
-                        <select id="expertise" name="expertise" required>
+                    <div class="space-y-2">
+                        <label for="expertise" class="text-xs font-bold text-forest uppercase tracking-widest">Primary Area of Expertise *</label>
+                        <select id="expertise" name="expertise" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all appearance-none cursor-pointer">
                             <option value="">-- Select One --</option>
                             <option value="field">Field Operations & Agroecology</option>
                             <option value="tech">Technology & AI Development</option>
@@ -43,28 +80,35 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="experience">Briefly describe your relevant experience (max 500 characters)</label>
-                    <textarea id="experience" name="experience" rows="4"></textarea>
+                <div class="space-y-2">
+                    <label for="experience" class="text-xs font-bold text-forest uppercase tracking-widest">Relevant Experience (max 500 characters)</label>
+                    <textarea id="experience" name="experience" rows="4" placeholder="Briefly describe your background..."
+                              class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="availability">Availability</label>
-                    <select id="availability" name="availability">
+                <div class="space-y-2">
+                    <label for="availability" class="text-xs font-bold text-forest uppercase tracking-widest">Availability</label>
+                    <select id="availability" name="availability"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all appearance-none cursor-pointer">
                         <option value="full">Full-time</option>
                         <option value="part">Part-time (Weekends/Evenings)</option>
                         <option value="casual">Casual / Project-based</option>
                     </select>
                 </div>
 
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to FARD's volunteer code of conduct and privacy policy.</label>
+                <div class="flex items-center space-x-3 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                    <input type="checkbox" id="terms" name="terms" required class="w-5 h-5 text-forest border-slate-300 rounded focus:ring-forest">
+                    <label for="terms" class="text-sm text-slate-600">I agree to FARD's volunteer code of conduct and privacy policy.</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit Application</button>
+                <div class="pt-8">
+                    <button type="submit" 
+                            class="w-full bg-forest hover:bg-forest/90 text-white font-bold py-5 rounded-2xl shadow-xl shadow-forest/20 transition-all transform hover:-translate-y-1">
+                        Submit Application
+                    </button>
+                </div>
             </form>
-            <div id="formFeedback" class="hidden"></div>
+            <div id="formFeedback" class="hidden mt-8 p-6 rounded-2xl"></div>
         </div>
     </div>
 </section>

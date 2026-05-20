@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Policy - FARD | Data Integrity{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Privacy <span class="text-tech">Policy</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Your data is the seed of our innovation. We protect it with enterprise-grade security and absolute transparency.
+        </p>
+    </div>
+</section>
+
+<!-- Policy Content -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white p-10 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100 space-y-12">
+            
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-forest/10 rounded-lg flex items-center justify-center text-forest text-sm">01</span>
+                    <span>Data Collection & AI Usage</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    FARD collects data necessary for precision agriculture, including soil health metrics, crop images, and cooperative membership details. This data is used to train our AI models to provide better diagnosis and yield predictions. We never sell individual farmer data to third parties.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-tech/10 rounded-lg flex items-center justify-center text-tech text-sm">02</span>
+                    <span>Data Sovereignty</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    We believe in the principle of data sovereignty. Farmers and cooperatives retain ownership of their primary data. You have the right to request access, correction, or deletion of your information from our systems at any time.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-leaf/10 rounded-lg flex items-center justify-center text-leaf text-sm">03</span>
+                    <span>Security Infrastructure</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    All data is stored using high-availability cloud infrastructure with end-to-end encryption. Our partnership with Delstarford Works ensures that our technological backbone meets international security standards.
+                </p>
+            </div>
+
+            <div class="pt-12 border-t border-slate-100">
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest text-center">Last Updated: May 20, 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

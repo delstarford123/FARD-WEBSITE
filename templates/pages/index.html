@@ -1,54 +1,433 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - FARD | Agriculture & AI Innovation{% endblock %}
+{% block title %}FARD | Food, Artificial Intelligence Research & Development{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Cultivating the Future: Where AI Meets Agroecology</h1>
-        <p>Empowering rural communities through sustainable technology and data-driven agricultural development.</p>
-        <div class="hero-btns">
-            <a href="/portals/volunteer_form.html" class="btn btn-primary">Join the Movement</a>
-            <a href="/portals/partner_pitch.html" class="btn btn-secondary">Partner With Us</a>
+<!-- Section 0: High-Impact Hero Section -->
+<section class="relative h-[90vh] flex items-center overflow-hidden bg-slate-950">
+    <!-- Unsplash Hero Image: African Farmer/Agriculture -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=2000" 
+             alt="African Agriculture Innovation" 
+             class="w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl space-y-8 animate-fade-in-up">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-leaf/10 border border-leaf/20 rounded-full">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-leaf opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-leaf"></span>
+                </span>
+                <span class="text-leaf text-xs font-bold uppercase tracking-widest">Bridging AI & Agroecology</span>
+            </div>
+            
+            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                Cultivating the <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-leaf to-tech">Digital Harvest.</span>
+            </h1>
+            
+            <p class="text-xl text-slate-300 leading-relaxed max-w-xl">
+                FARD leverages cutting-edge Artificial Intelligence to empower smallholder farmers, ensuring food security through sustainable, data-driven agroecology.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
+                <a href="{{ url_for('get_involved') }}" class="px-8 py-4 bg-leaf hover:bg-leaf/90 text-white font-bold rounded-xl shadow-2xl transition-all transform hover:-translate-y-1 text-center">
+                    Join the Movement
+                </a>
+                <a href="{{ url_for('pillars') }}" class="px-8 py-4 bg-white/5 border-2 border-white/20 hover:border-tech hover:text-tech text-white font-bold rounded-xl transition-all text-center backdrop-blur-sm">
+                    Our Technology
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Bottom Wave -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#14532D"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Section 1: "One Acre Fund" Style Impact Counter -->
+<section class="relative w-full py-20 lg:py-32 bg-forest overflow-hidden" aria-labelledby="impact-heading">
+    <!-- Subtle Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-forest via-forest to-leaf/20 opacity-50"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="impact-heading" class="sr-only">Our Impact at a Glance</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            <!-- Counter Item 1 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <span class="text-6xl lg:text-8xl font-black text-white tracking-tighter" id="counter-farmers">500+</span>
+                <div class="h-1.5 w-16 bg-amber rounded-full"></div>
+                <p class="text-leaf font-bold uppercase tracking-[0.2em] text-sm lg:text-base">Farmers Reached</p>
+            </div>
+            <!-- Counter Item 2 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <span class="text-6xl lg:text-8xl font-black text-white tracking-tighter" id="counter-acres">1,200</span>
+                <div class="h-1.5 w-16 bg-amber rounded-full"></div>
+                <p class="text-leaf font-bold uppercase tracking-[0.2em] text-sm lg:text-base">Acres of Agroecology</p>
+            </div>
+            <!-- Counter Item 3 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <span class="text-6xl lg:text-8xl font-black text-white tracking-tighter" id="counter-youth">200</span>
+                <div class="h-1.5 w-16 bg-amber rounded-full"></div>
+                <p class="text-leaf font-bold uppercase tracking-[0.2em] text-sm lg:text-base">Youth Trained in STEAM</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Impact Metrics Section -->
-<section class="impact-metrics">
-    <div class="container">
-        <h2>Our Impact</h2>
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <span class="counter" data-target="5000">0</span>+
-                <p>Farmers Onboarded</p>
+<!-- Section 2: "Apollo Agriculture" Style AI Crop Tool Showcase -->
+<section class="py-24 bg-slate-50 overflow-hidden" aria-labelledby="ai-showcase-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left Column: Content -->
+            <div class="space-y-8 animate-fade-in-up">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-tech/10 border border-tech/20">
+                    <span class="flex h-2 w-2 rounded-full bg-tech mr-2"></span>
+                    <span class="text-tech text-xs font-bold uppercase tracking-widest">FARD Intelligence Alpha</span>
+                </div>
+                <h2 id="ai-showcase-heading" class="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1]">
+                    AI-Powered Diagnostics <br/> 
+                    <span class="text-forest">Right in the Palm of Your Hand.</span>
+                </h2>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-xl">
+                    Our proprietary AI Crop Diagnosis app uses computer vision to identify pests, diseases, and nutrient deficiencies in real-time, providing smallholder farmers with instant, localized solutions.
+                </p>
+                <div class="pt-4">
+                    <a href="{{ url_for('projects') }}" class="inline-flex items-center px-8 py-4 bg-forest hover:bg-forest/90 text-white font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-1 group">
+                        Explore the Software
+                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <div class="metric-card">
-                <span class="counter" data-target="1200">0</span>+
-                <p>Youth Trained in STEAM</p>
-            </div>
-            <div class="metric-card">
-                <span class="counter" data-target="150">0</span>+
-                <p>Cooperatives Engaged</p>
+
+            <!-- Right Column: Phone Mockup -->
+            <div class="relative flex justify-center lg:justify-end">
+                <!-- Decorative Glow -->
+                <div class="absolute -z-0 w-72 h-72 bg-leaf/20 blur-[80px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                
+                <!-- Custom Smartphone Mockup -->
+                <div class="relative z-10 w-[300px] h-[600px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden">
+                    <!-- Notch -->
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-800 rounded-b-2xl z-20"></div>
+                    <!-- Screen Content -->
+                    <div class="absolute inset-0 bg-white p-6 pt-12 flex flex-col space-y-6">
+                        <div class="flex items-center justify-between">
+                            <div class="w-8 h-8 rounded-lg bg-forest/10 flex items-center justify-center">
+                                <div class="w-4 h-4 bg-forest rounded-sm"></div>
+                            </div>
+                            <div class="text-[10px] font-bold text-slate-400">FARD DIAGNOSIS V2</div>
+                        </div>
+                        <div class="aspect-square w-full rounded-2xl bg-slate-100 overflow-hidden border-2 border-dashed border-slate-200 flex items-center justify-center relative group">
+                            <!-- Unsplash Agri Tech Image -->
+                            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=600" 
+                                 alt="AI Analysis View" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-forest/20 flex items-center justify-center">
+                                <div class="w-24 h-24 border-2 border-white rounded-full animate-ping"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 w-3/4 bg-slate-100 rounded"></div>
+                            <div class="h-4 w-1/2 bg-slate-100 rounded"></div>
+                            <div class="p-4 bg-leaf/10 border border-leaf/20 rounded-xl">
+                                <p class="text-xs font-bold text-forest uppercase">Diagnosis Identified</p>
+                                <p class="text-sm font-bold text-slate-800">Maize Stem Borer Detected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- The FARD Advantage -->
-<section class="fard-advantage">
-    <div class="container">
-        <h2>The FARD Advantage</h2>
-        <div class="advantage-flex">
-            <div class="advantage-text">
-                <h3>Bridging Technology & Tradition</h3>
-                <p>FARD serves as a unique B2B bridge, connecting cutting-edge AI and data analytics with grassroots agroecology. We don't just provide tools; we cultivate sustainable ecosystems where technology enhances traditional wisdom to ensure food security and economic resilience.</p>
+<!-- Section 3: "Twiga Foods" Style B2B Supply Chain Grid -->
+<section class="py-24 bg-white" aria-labelledby="supply-chain-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-4 mb-20">
+            <h2 id="supply-chain-heading" class="text-leaf font-bold uppercase tracking-[0.3em] text-sm">How FARD Works</h2>
+            <h3 class="text-4xl lg:text-5xl font-bold text-slate-900">Closing the Loop in African Agriculture.</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 relative">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 -z-0"></div>
+            
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col items-center text-center space-y-6 group">
+                <div class="w-20 h-20 rounded-2xl bg-forest flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-xl">The Farmer</h4>
+                    <p class="text-slate-500 text-sm">Empowering smallholders with data-driven agroecology practices.</p>
+                </div>
             </div>
-            <div class="advantage-image">
-                <!-- Placeholder for an image or graphic -->
-                <div class="image-placeholder">AI & AGRO IMAGE</div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col items-center text-center space-y-6 group">
+                <div class="w-20 h-20 rounded-2xl bg-tech flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-xl">AI Data Analysis</h4>
+                    <p class="text-slate-500 text-sm">Converting farm inputs and climate data into actionable insights.</p>
+                </div>
             </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col items-center text-center space-y-6 group">
+                <div class="w-20 h-20 rounded-2xl bg-amber flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-xl">Market Linkage</h4>
+                    <p class="text-slate-500 text-sm">Direct B2B connection between producers and high-value buyers.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative z-10 flex flex-col items-center text-center space-y-6 group">
+                <div class="w-20 h-20 rounded-2xl bg-slate-900 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-xl">The Vendor</h4>
+                    <p class="text-slate-500 text-sm">Delivering quality, traceable produce to global and local markets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: "DeepMind" Style STEAM Coding Camps -->
+<section class="py-24 bg-slate-950 overflow-hidden relative" aria-labelledby="steam-heading">
+    <!-- Background Image: Black Youth Coding -->
+    <div class="absolute inset-0 opacity-20">
+        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=2000" 
+             alt="Black Youth Coding" 
+             class="w-full h-full object-cover grayscale">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 id="steam-heading" class="text-tech font-bold uppercase tracking-[0.3em] text-sm">FARD Futures Academy</h2>
+                <h3 class="text-4xl lg:text-6xl font-bold text-white leading-tight">
+                    Programming the <br/>
+                    <span class="text-tech drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">Next Generation.</span>
+                </h3>
+                <p class="text-xl text-slate-400 leading-relaxed">
+                    Our intensive STEAM coding camps and robotics workshops equip youth from rural communities with the technical skills required to thrive in the global digital economy.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-tech/50 hover:bg-white/10 transition-all cursor-default group backdrop-blur-sm">
+                        <p class="text-tech font-bold text-lg mb-2 group-hover:scale-105 transition-transform">Robotics</p>
+                        <p class="text-slate-500 text-sm">Building hardware for smart agriculture.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-tech/50 hover:bg-white/10 transition-all cursor-default group backdrop-blur-sm">
+                        <p class="text-tech font-bold text-lg mb-2 group-hover:scale-105 transition-transform">AI & Python</p>
+                        <p class="text-slate-500 text-sm">Mastering the logic behind the tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Element: Abstract Code/Data Grid -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-tech/10 blur-[100px] rounded-full"></div>
+                <div class="relative bg-slate-900/80 rounded-3xl p-8 border border-white/10 shadow-3xl backdrop-blur-md">
+                    <pre class="text-xs text-tech overflow-hidden whitespace-pre font-mono">
+<code>def diagnosis(leaf_sample):
+    # FARD-CNN Model v4.2
+    prediction = model.predict(leaf_sample)
+    if prediction['accuracy'] > 0.95:
+        return f"IDENTIFIED: {prediction['class']}"
+    else:
+        return "SCAN_RETRY_REQUIRED"
+
+# Output Terminal
+>> Running FARD_Alpha...
+>> Scanning Soil Sensors...
+>> Moisture: 42% (Optimal)
+>> Nitrogen: Low (Action Req)
+>> System: STATUS_OK</code>
+                    </pre>
+                    <div class="absolute bottom-4 right-4 animate-pulse">
+                        <div class="w-3 h-3 bg-tech rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: "WRI" Style Data & Insights Preview -->
+<section class="py-24 bg-slate-50" aria-labelledby="insights-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div class="max-w-2xl">
+                <h2 id="insights-heading" class="text-forest font-bold uppercase tracking-widest text-sm mb-4">Intelligence Repository</h2>
+                <h3 class="text-4xl font-bold text-slate-900 leading-tight">Grant-Ready Data & Circular Economy Insights.</h3>
+            </div>
+            <a href="{{ url_for('transparency') }}" class="group flex items-center space-x-2 text-forest font-bold hover:text-tech transition-colors">
+                <span>Access Resource Center</span>
+                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Report Card 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:border-forest/30 transition-all flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-amber/10 flex items-center justify-center text-amber">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 2a1 1 0 011-1h2a1 1 0 011 1v14a1 1 0 01-1 1h-2a1 1 0 01-1-1V2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900">BSF Circular Economy Report</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        An in-depth analysis of Black Soldier Fly larvae production as a sustainable protein source for local agriculture.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-slate-50">
+                    <button class="text-forest font-bold text-xs uppercase tracking-widest group-hover:text-amber transition-colors">Download PDF &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Report Card 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:border-forest/30 transition-all flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-tech/10 flex items-center justify-center text-tech">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C7.598 4.285 9.237 4 11 4v1.732c-.812 0-1.615.15-2.372.443a2.903 2.903 0 01-1.336 1.336 2.903 2.903 0 01-1.336 1.336 2.903 2.903 0 01-1.336 1.336A5.968 5.968 0 014.332 8.027z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900">Agroecology Impact 2024</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Annual metrics on soil organic matter improvement and yield resilience across our partner farm clusters.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-slate-50">
+                    <button class="text-forest font-bold text-xs uppercase tracking-widest group-hover:text-amber transition-colors">View Dashboard &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Report Card 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:border-forest/30 transition-all flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-lg bg-leaf/10 flex items-center justify-center text-leaf">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900">Social Capital Dynamics</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Exploring the role of digital trust and community cooperation in scaling technology within rural networks.
+                    </p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-slate-50">
+                    <button class="text-forest font-bold text-xs uppercase tracking-widest group-hover:text-amber transition-colors">Read Case Study &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: Leadership & Team Grid -->
+<section class="py-24 bg-white" aria-labelledby="team-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-4 mb-20">
+            <h2 id="team-heading" class="text-amber font-bold uppercase tracking-[0.3em] text-sm">Our People</h2>
+            <h3 class="text-4xl lg:text-5xl font-bold text-slate-900">Meet the Executive Team</h3>
+            <p class="text-slate-500 max-w-2xl mx-auto">Combining expertise in AI engineering, agroecology, and community development to drive systemic change.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Member 1 -->
+            <div class="flex flex-col items-center group">
+                <div class="relative w-48 h-48 mb-6">
+                    <div class="absolute inset-0 bg-forest rounded-full rotate-6 group-hover:rotate-12 transition-transform"></div>
+                    <img src="{{ url_for('static', filename='images/team/founder.jpg') }}" alt="Executive Management" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                </div>
+                <h4 class="font-bold text-slate-900 text-xl text-center">Executive Management</h4>
+                <p class="text-forest font-medium text-sm mb-4">Wing A - Leadership</p>
+                <a href="#" class="text-slate-300 hover:text-cyber transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="flex flex-col items-center group">
+                <div class="relative w-48 h-48 mb-6">
+                    <div class="absolute inset-0 bg-tech rounded-full -rotate-6 group-hover:-rotate-12 transition-transform"></div>
+                    <img src="{{ url_for('static', filename='images/team/COLLINS.jpeg') }}" alt="Technical Lead" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                </div>
+                <h4 class="font-bold text-slate-900 text-xl text-center">Technical Lead</h4>
+                <p class="text-tech font-medium text-sm mb-4">AI Research & Dev</p>
+                <a href="#" class="text-slate-300 hover:text-cyber transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="flex flex-col items-center group">
+                <div class="relative w-48 h-48 mb-6">
+                    <div class="absolute inset-0 bg-leaf rounded-full rotate-6 group-hover:rotate-12 transition-transform"></div>
+                    <img src="{{ url_for('static', filename='images/team/Charity Wanjiro.jpeg') }}" alt="Operations Director" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                </div>
+                <h4 class="font-bold text-slate-900 text-xl text-center">Operations Director</h4>
+                <p class="text-leaf font-medium text-sm mb-4">Community Engagement</p>
+                <a href="#" class="text-slate-300 hover:text-cyber transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="flex flex-col items-center group">
+                <div class="relative w-48 h-48 mb-6">
+                    <div class="absolute inset-0 bg-amber rounded-full -rotate-6 group-hover:-rotate-12 transition-transform"></div>
+                    <img src="{{ url_for('static', filename='images/team/FARMERMAN.jpeg') }}" alt="Agri-Tech Specialist" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                </div>
+                <h4 class="font-bold text-slate-900 text-xl text-center">Agri-Tech Specialist</h4>
+                <p class="text-amber font-medium text-sm mb-4">Field Implementation</p>
+                <a href="#" class="text-slate-300 hover:text-cyber transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: "CGIAR" Style Partner Carousel -->
+<section class="py-12 bg-slate-50 border-t border-slate-200" aria-labelledby="partners-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="partners-heading" class="sr-only">Our Partners</h2>
+        <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            <!-- Partner Placeholders -->
+            <div class="h-8 w-32 bg-slate-400 rounded-md"></div>
+            <div class="h-8 w-40 bg-slate-400 rounded-md"></div>
+            <div class="h-8 w-28 bg-slate-400 rounded-md"></div>
+            <div class="h-8 w-36 bg-slate-400 rounded-md"></div>
+            <div class="h-8 w-32 bg-slate-400 rounded-md"></div>
+            <div class="h-8 w-44 bg-slate-400 rounded-md"></div>
         </div>
     </div>
 </section>
@@ -56,22 +435,45 @@
 
 {% block scripts %}
 <script>
-    // Simple counter animation
-    document.querySelectorAll('.counter').forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const speed = 200; // The lower the slower
-            const inc = target / speed;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target;
+    // Counter Animation Logic
+    function animateValue(id, start, end, duration) {
+        const obj = document.getElementById(id);
+        if (!obj) return;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            let value = Math.floor(progress * (end - start) + start);
+            obj.innerHTML = value.toLocaleString() + (id === 'counter-farmers' ? '+' : '');
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
             }
         };
-        updateCount();
-    });
+        window.requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateValue("counter-farmers", 0, 500, 2000);
+                animateValue("counter-acres", 0, 1200, 2000);
+                animateValue("counter-youth", 0, 200, 2000);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const counterSection = document.getElementById("counter-farmers");
+    if (counterSection) observer.observe(counterSection);
 </script>
+
+<style>
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+    }
+</style>
 {% endblock %}

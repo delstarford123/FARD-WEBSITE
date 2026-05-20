@@ -44,6 +44,18 @@ def transparency():
 def get_involved():
     return render_template('pages/get_involved.html')
 
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('pages/privacy_policy.html')
+
+@app.route('/terms-of-service')
+def terms_of_service():
+    return render_template('pages/terms_of_service.html')
+
+@app.route('/compliance')
+def compliance():
+    return render_template('pages/compliance.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -168,11 +180,11 @@ def admin_dashboard():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('base.html'), 404 # Placeholder for a proper 404 page
+    return render_template('404.html'), 404
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('base.html'), 500 # Placeholder for a proper 500 page
+    return render_template('404.html'), 500 # Use 404 as fallback for now
 
 if __name__ == '__main__':
     # Professional entry point

@@ -3,26 +3,86 @@
 {% block title %}Events Calendar - FARD{% endblock %}
 
 {% block content %}
-<section class="events-hero">
-    <div class="container text-center">
-        <h1>Community Mobilization</h1>
-        <p>Join our upcoming barazas, sports tournaments, and tech-camps.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Community <span class="text-tech">Mobilization</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Join our upcoming barazas, sports tournaments, and tech-camps. Building local resilience through collective action.
+        </p>
     </div>
 </section>
 
-<section class="events-calendar">
-    <div class="container">
-        <div id="calendar-placeholder" class="calendar-view">
-            <!-- FullCalendar.js would go here -->
-            <div class="calendar-mock">
-                <div class="calendar-header">May 2026</div>
-                <div class="calendar-grid">
-                    <div class="event-day">15: STEAM Coding Camp</div>
-                    <div class="event-day">22: BSF Training Workshop</div>
-                    <div class="event-day">30: Farmers Sports Day</div>
-                </div>
+<!-- Calendar/Events Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-8">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900">Upcoming Schedule</h2>
+                <div class="w-24 h-1 bg-leaf mt-4 rounded-full"></div>
+            </div>
+            <div class="flex items-center space-x-4 bg-white p-2 rounded-2xl shadow-sm border border-slate-200">
+                <button class="px-6 py-2 bg-forest text-white font-bold rounded-xl text-sm transition-all">List View</button>
+                <button class="px-6 py-2 text-slate-500 font-bold rounded-xl text-sm hover:bg-slate-50 transition-all">Grid View</button>
             </div>
         </div>
+
+        <div class="space-y-8">
+            {% set events = [
+                ('15 May 2026', 'STEAM Coding Camp', 'Kakamega Hub', 'Empowering youth with foundational coding and robotics skills.', 'Youth'),
+                ('22 May 2026', 'BSF Training Workshop', 'Mumias Facility', 'Hands-on training for Black Soldier Fly production systems.', 'Agroecology'),
+                ('30 May 2026', 'Farmers Sports Day', 'Bukhungu Stadium', 'Promoting community health and unity through sports.', 'Health')
+            ] %}
+            
+            {% for event in events %}
+            <div class="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-shrink-0 text-center md:text-left md:border-r md:border-slate-100 md:pr-10">
+                    <span class="block text-3xl font-black text-forest">{{ event[0].split(' ')[0] }}</span>
+                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">{{ event[0].split(' ')[1] }} {{ event[0].split(' ')[2] }}</span>
+                </div>
+                
+                <div class="flex-grow space-y-4">
+                    <div class="inline-block px-3 py-1 bg-leaf/10 text-leaf text-[10px] font-bold uppercase rounded-full tracking-wider">{{ event[4] }}</div>
+                    <h3 class="text-2xl font-bold text-slate-900 group-hover:text-forest transition-colors">{{ event[1] }}</h3>
+                    <div class="flex items-center space-x-2 text-slate-500 text-sm">
+                        <svg class="w-4 h-4 text-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                        <span>{{ event[2] }}</span>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed max-w-2xl">{{ event[3] }}</p>
+                </div>
+                
+                <div class="flex-shrink-0 w-full md:w-auto">
+                    <a href="#" class="inline-block w-full md:w-auto py-4 px-8 bg-forest text-white font-bold rounded-2xl text-center hover:bg-forest/90 transform hover:-translate-y-1 transition-all shadow-lg shadow-forest/20">
+                        Join Event
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<!-- Suggest Event CTA -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
+        <div class="w-20 h-20 bg-tech/10 rounded-3xl flex items-center justify-center mx-auto text-tech text-3xl italic">💡</div>
+        <h3 class="text-3xl font-bold text-slate-900">Have a community project idea?</h3>
+        <p class="text-slate-600 leading-relaxed">FARD supports local initiatives that align with our core pillars. Reach out to propose a community event or partnership.</p>
+        <a href="{{ url_for('contact') }}" class="inline-block bg-forest text-white font-bold px-10 py-4 rounded-xl hover:bg-forest/90 transition-all transform hover:-translate-y-1">Contact Hub Manager</a>
     </div>
 </section>
 {% endblock %}

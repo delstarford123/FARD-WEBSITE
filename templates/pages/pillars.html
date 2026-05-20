@@ -1,61 +1,93 @@
 {% extends 'base.html' %}
 
-{% block title %}Our Pillars - FARD | Core Focus Areas{% endblock %}
+{% block title %}Our Pillars | FARD - Core Focus Areas{% endblock %}
 
 {% block content %}
-<section class="pillars-intro">
-    <div class="container text-center">
-        <h1>The 5 Core Focus Areas</h1>
-        <p>FARD operates at the intersection of technology, health, and sustainable development.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-leaf font-bold uppercase tracking-widest text-sm mb-4">The FARD Framework</h2>
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Our 5 Core <span class="text-tech">Pillars</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            FARD operates at the intersection of technology, health, and sustainable community development through these foundational focus areas.
+        </p>
     </div>
 </section>
 
-<section class="pillars-grid">
-    <div class="container">
-        <!-- Pillar 1 -->
-        <div class="pillar-item">
-            <div class="pillar-icon">🚜</div>
-            <div class="pillar-content">
-                <h3>Smart & Precision Agriculture</h3>
-                <p>We leverage climate-resilient methods and data-driven insights to optimize yields and minimize waste. Our focus is on precision farming that respects local ecosystems.</p>
+<!-- Pillars Grid -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Pillar 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">🚜</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Smart Agriculture</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    Leveraging climate-resilient methods and AI-driven insights to optimize yields and minimize waste for smallholder farmers.
+                </p>
             </div>
-        </div>
 
-        <!-- Pillar 2 -->
-        <div class="pillar-item">
-            <div class="pillar-icon">📈</div>
-            <div class="pillar-content">
-                <h3>Market Linkages</h3>
-                <p>Our data-driven supply chain platform connects farmers directly with fair markets, eliminating exploitative middlemen and ensuring transparent pricing for all.</p>
+            <!-- Pillar 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">📊</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Market Linkage</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    Connecting farmer data directly to market demand, eliminating exploitative middlemen and ensuring transparent pricing.
+                </p>
             </div>
-        </div>
 
-        <!-- Pillar 3 -->
-        <div class="pillar-item">
-            <div class="pillar-icon">💻</div>
-            <div class="pillar-content">
-                <h3>STEAM & Youth Inclusion</h3>
-                <p>From coding camps to ag-tech training, we empower the next generation. Our programs prioritize child and girl-child empowerment in the digital economy.</p>
+            <!-- Pillar 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">💻</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">STEAM & Youth</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    Empowering the next generation through coding camps and ag-tech training, prioritizing child and girl-child empowerment.
+                </p>
             </div>
-        </div>
 
-        <!-- Pillar 4 -->
-        <div class="pillar-item">
-            <div class="pillar-icon">🩺</div>
-            <div class="pillar-content">
-                <h3>Community Health & Nutrition</h3>
-                <p>Promoting indigenous crops for better nutrition and providing training on safe agrochemical handling to protect the health of our farming communities.</p>
+            <!-- Pillar 4 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">🩺</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Health & Nutrition</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    Promoting indigenous crops for food security and providing training on safe, precision chemical handling.
+                </p>
             </div>
-        </div>
-        
-        <!-- Pillar 5 (Placeholder for completeness if needed) -->
-        <div class="pillar-item">
-            <div class="pillar-icon">🌱</div>
-            <div class="pillar-content">
-                <h3>Agroecology & Biodiversity</h3>
-                <p>Restoring soil health and promoting biodiversity through sustainable land management and organic practices.</p>
+
+            <!-- Pillar 5 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">🌱</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Agroecology</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    Restoring soil health and promoting biodiversity through sustainable land management and organic practices.
+                </p>
             </div>
+
         </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
+        <h3 class="text-3xl font-bold text-slate-900">Ready to support a specific pillar?</h3>
+        <p class="text-slate-600">We offer specialized partnership opportunities for each of our focus areas.</p>
+        <a href="{{ url_for('partner_pitch') }}" class="inline-block bg-forest text-white font-bold px-10 py-4 rounded-xl hover:bg-forest/90 transition-all transform hover:-translate-y-1 shadow-lg shadow-forest/20">
+            Download Prospectus
+        </a>
     </div>
 </section>
 {% endblock %}

@@ -3,27 +3,95 @@
 {% block title %}Farmer Dashboard - FARD{% endblock %}
 
 {% block content %}
-<div class="dashboard-layout">
-    <aside class="dashboard-sidebar">
-        <h3>Farmer Portal</h3>
-        <ul>
-            <li><a href="/dashboards/farmer/market_prices.html">Market Intelligence</a></li>
-            <li><a href="/dashboards/farmer/crop_diagnosis.html">AI Crop Diagnosis</a></li>
-            <li><a href="/dashboards/farmer/resources.html">Training Materials</a></li>
-        </ul>
+<div class="min-h-screen bg-slate-50 flex flex-col lg:flex-row">
+    <!-- Dashboard Sidebar -->
+    <aside class="w-full lg:w-72 bg-forest text-white lg:min-h-screen relative overflow-hidden flex flex-col">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/10 blur-3xl rounded-full"></div>
+        
+        <div class="p-8 relative z-10">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Farmer Portal</h2>
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center space-x-3 p-4 bg-white/10 rounded-2xl font-bold transition-all border border-white/10">
+                    <svg class="w-5 h-5 text-leaf" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span>Market Intelligence</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 011.664.89l.812 1.22A2 2 0 0010.07 10H19a2 2 0 012 2v4a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                    <span>AI Crop Diagnosis</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span>Training Materials</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="mt-auto p-8 border-t border-white/10 relative z-10">
+            <a href="/logout" class="flex items-center space-x-3 text-red-400 hover:text-red-300 font-bold transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                <span>Logout</span>
+            </a>
+        </div>
     </aside>
-    <main class="dashboard-content">
-        <h1>Welcome, [Cooperative Name]</h1>
-        <div class="dashboard-tools">
-            <div class="tool-card">
-                <h3>AI Crop Health</h3>
-                <p>Upload a photo to detect diseases instantly.</p>
-                <a href="/dashboards/farmer/crop_diagnosis.html" class="btn btn-primary">Scan Crop</a>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-8 lg:p-12 space-y-12">
+        <!-- Top Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-900">Welcome, <span class="text-forest">[Cooperative Name]</span></h1>
+                <p class="text-slate-500 mt-2">Empowering your community with real-time agricultural intelligence.</p>
             </div>
-            <div class="tool-card">
-                <h3>Live Prices</h3>
-                <p>Real-time data from Delstarford Works.</p>
-                <a href="/dashboards/farmer/market_prices.html" class="btn btn-secondary">View Prices</a>
+            <div class="flex items-center space-x-4 px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-10 h-10 rounded-full bg-leaf/10 flex items-center justify-center text-leaf font-bold text-xs">CBO</div>
+                <span class="text-sm font-bold text-slate-700">Premium Member</span>
+            </div>
+        </div>
+
+        <!-- Tool Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- AI Crop Health Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 group hover:border-tech/20 transition-all flex flex-col h-full relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-48 h-48 bg-tech/5 blur-3xl rounded-full group-hover:bg-tech/10 transition-colors"></div>
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-tech group-hover:bg-tech group-hover:text-white transition-colors duration-300">📱</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">AI Crop Health</h3>
+                <p class="text-slate-600 leading-relaxed mb-10 flex-grow">
+                    Upload a photo of your crop's leaves to detect pests and diseases instantly using our computer vision models.
+                </p>
+                <a href="/dashboards/farmer/crop_diagnosis.html" class="inline-block w-full py-5 px-6 bg-tech text-white font-bold rounded-2xl text-center hover:bg-tech/90 transform hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-tech/20">
+                    Scan Crop Now
+                </a>
+            </div>
+
+            <!-- Live Prices Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 group hover:border-forest/20 transition-all flex flex-col h-full relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-48 h-48 bg-forest/5 blur-3xl rounded-full group-hover:bg-forest/10 transition-colors"></div>
+                <div class="w-16 h-16 bg-forest/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-forest group-hover:bg-forest group-hover:text-white transition-colors duration-300">📊</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Live Market Prices</h3>
+                <p class="text-slate-600 leading-relaxed mb-10 flex-grow">
+                    Access real-time pricing data from Delstarford Works to ensure you get the best value for your harvest.
+                </p>
+                <a href="/dashboards/farmer/market_prices.html" class="inline-block w-full py-5 px-6 bg-forest text-white font-bold rounded-2xl text-center hover:bg-forest/90 transform hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-forest/20">
+                    View Market Intelligence
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Tips/Resource Alert -->
+        <div class="bg-forest p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/20 blur-3xl rounded-full group-hover:bg-leaf/30 transition-colors"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-4 text-center md:text-left">
+                    <h3 class="text-2xl font-bold">New Training Material Available!</h3>
+                    <p class="text-slate-200">The "Safe Agrochemical Handling Guide" is now available in your resources.</p>
+                </div>
+                <a href="/dashboards/farmer/resources.html" class="bg-leaf hover:bg-leaf/90 text-forest font-bold px-10 py-4 rounded-xl transition-all transform hover:scale-105 shadow-xl">
+                    Access Library
+                </a>
             </div>
         </div>
     </main>

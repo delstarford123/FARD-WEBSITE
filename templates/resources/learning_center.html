@@ -3,32 +3,91 @@
 {% block title %}Resource Center - FARD{% endblock %}
 
 {% block content %}
-<section class="resources-hero">
-    <div class="container text-center">
-        <h1>Knowledge Hub</h1>
-        <p>Access our curriculum, manuals, and official reports.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Knowledge <span class="text-tech">Hub</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Access our specialized curriculum, field manuals, and official organizational reports to stay informed and empowered.
+        </p>
     </div>
 </section>
 
-<section class="resources-main">
-    <div class="container">
-        <div class="resource-grid">
-            <div class="resource-section">
-                <h3>Learning Center</h3>
-                <ul>
-                    <li><a href="#">Smart Agriculture Guide (PDF)</a></li>
-                    <li><a href="#">Safe Agrochemical Handling</a></li>
-                    <li><a href="#">STEAM Tutorial: Intro to Robotics</a></li>
+<!-- Resources Grid Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Learning Center Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-full">
+                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-tech">🎓</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">Learning Center</h3>
+                <ul class="space-y-4 flex-grow">
+                    {% for item in [
+                        ('Smart Agriculture Guide (PDF)', '#', '🚜'),
+                        ('Safe Agrochemical Handling', '#', '🧪'),
+                        ('STEAM Tutorial: Intro to Robotics', '#', '🤖')
+                    ] %}
+                    <li>
+                        <a href="{{ item[1] }}" class="group flex items-center space-x-4 p-4 bg-slate-50 rounded-2xl hover:bg-forest hover:text-white transition-all duration-300">
+                            <span class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">{{ item[2] }}</span>
+                            <span class="font-semibold text-sm">{{ item[0] }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
                 </ul>
             </div>
-            <div class="resource-section">
-                <h3>Official Downloads</h3>
-                <ul>
-                    <li><a href="/static/documents/governance/constitution.pdf">FARD Constitution</a></li>
-                    <li><a href="/static/documents/reports/annual_report_2025.pdf">Annual Report 2025</a></li>
+
+            <!-- Official Downloads Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-full">
+                <div class="w-16 h-16 bg-leaf/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-leaf">📋</div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">Official Downloads</h3>
+                <ul class="space-y-4 flex-grow">
+                    <li>
+                        <a href="/static/documents/governance/constitution.pdf" class="group flex items-center justify-between p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 hover:border-forest hover:bg-forest/5 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-2xl text-slate-400 group-hover:text-forest transition-colors italic">📜</span>
+                                <span class="font-bold text-slate-700 group-hover:text-forest transition-colors">FARD Constitution</span>
+                            </div>
+                            <span class="text-xs font-black uppercase text-slate-400 group-hover:text-forest transition-colors">PDF &darr;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/static/documents/reports/annual_report_2025.pdf" class="group flex items-center justify-between p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 hover:border-forest hover:bg-forest/5 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-2xl text-slate-400 group-hover:text-forest transition-colors italic">📊</span>
+                                <span class="font-bold text-slate-700 group-hover:text-forest transition-colors">Annual Report 2025</span>
+                            </div>
+                            <span class="text-xs font-black uppercase text-slate-400 group-hover:text-forest transition-colors">PDF &darr;</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
+
         </div>
+    </div>
+</section>
+
+<!-- Support/Contact Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
+        <h3 class="text-3xl font-bold text-slate-900">Need specific documentation?</h3>
+        <p class="text-slate-600">Our research team publishes new findings and manuals quarterly. Reach out for specific inquiries.</p>
+        <a href="{{ url_for('contact') }}" class="inline-block bg-forest text-white font-bold px-10 py-4 rounded-xl hover:bg-forest/90 transition-all transform hover:-translate-y-1 shadow-lg shadow-forest/20">
+            Request Info
+        </a>
     </div>
 </section>
 {% endblock %}

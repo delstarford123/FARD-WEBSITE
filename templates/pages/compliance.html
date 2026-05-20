@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Compliance - FARD | Regulatory Framework{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Regulatory <span class="text-tech">Compliance</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Operating under the highest standards of legal and ethical accountability as a registered CBO in Kenya.
+        </p>
+    </div>
+</section>
+
+<!-- Compliance Content -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-12">
+            
+            <!-- Legal Status Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-10">
+                <div class="w-20 h-20 bg-forest/10 rounded-3xl flex items-center justify-center text-forest text-4xl flex-shrink-0">⚖️</div>
+                <div class="flex-grow space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-900">Official Registration</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        FARD is a fully registered Community-Based Organization (CBO) under the Department of Social Development, Kakamega County, Republic of Kenya. Registration Number: <strong class="text-forest">CBO/238492</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Financial Accountability Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-10">
+                <div class="w-20 h-20 bg-tech/10 rounded-3xl flex items-center justify-center text-tech text-4xl flex-shrink-0">📊</div>
+                <div class="flex-grow space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-900">Audit & Transparency</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Our financial records are subject to annual external audits and are open for review by the Sub-County Social Development Office. We adhere to international financial reporting standards for non-profit organizations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ethics & Data Card -->
+            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-10">
+                <div class="w-20 h-20 bg-leaf/10 rounded-3xl flex items-center justify-center text-leaf text-4xl flex-shrink-0">🛡️</div>
+                <div class="flex-grow space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-900">AI Ethics & Data Privacy</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        We comply with the Kenya Data Protection Act 2019. Our AI models are developed with a "Human-in-the-Loop" approach to ensure algorithmic fairness and safety for rural agricultural deployment.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20 text-center space-y-6">
+            <h4 class="text-xl font-bold text-slate-900">Compliance Documents</h4>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-8 py-3 bg-forest text-white font-bold rounded-xl hover:bg-forest/90 transition-all">Registration Certificate (PDF)</a>
+                <a href="#" class="px-8 py-3 border-2 border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition-all">Ethical AI Charter</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

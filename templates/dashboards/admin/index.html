@@ -3,29 +3,103 @@
 {% block title %}Executive Dashboard - FARD{% endblock %}
 
 {% block content %}
-<div class="dashboard-layout">
-    <aside class="dashboard-sidebar">
-        <h3>Admin Panel</h3>
-        <ul>
-            <li><a href="/dashboards/admin/financials.html">Financials (60/40)</a></li>
-            <li><a href="/dashboards/admin/member_mgmt.html">Member Management</a></li>
-            <li><a href="/dashboards/admin/reports.html">System Reports</a></li>
-        </ul>
+<div class="min-h-screen bg-slate-50 flex flex-col lg:flex-row">
+    <!-- Dashboard Sidebar -->
+    <aside class="w-full lg:w-72 bg-forest text-white lg:min-h-screen relative overflow-hidden flex flex-col">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-tech/10 blur-3xl rounded-full"></div>
+        
+        <div class="p-8 relative z-10">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Executive Control</h2>
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center space-x-3 p-4 bg-white/10 rounded-2xl font-bold transition-all border border-white/10">
+                    <svg class="w-5 h-5 text-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>Financials (60/40)</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <span>Member Management</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span>System Reports</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="mt-auto p-8 border-t border-white/10 relative z-10">
+            <a href="/logout" class="flex items-center space-x-3 text-red-400 hover:text-red-300 font-bold transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                <span>Logout</span>
+            </a>
+        </div>
     </aside>
-    <main class="dashboard-content">
-        <h1>Wing A Executive Dashboard</h1>
-        <div class="stats-overview">
-            <div class="stat-card">
-                <h4>Total Revenue</h4>
-                <p>$0.00</p>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-8 lg:p-12 space-y-12">
+        <!-- Top Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-900">Wing A Executive Dashboard</h1>
+                <p class="text-slate-500 mt-2">Welcome back, Chairperson. Monitoring real-time impact and revenue.</p>
             </div>
-            <div class="stat-card">
-                <h4>Grant Allocations</h4>
-                <p>40% Reserved</p>
+            <div class="flex items-center space-x-4 px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-200">
+                <span class="w-3 h-3 bg-leaf rounded-full animate-pulse"></span>
+                <span class="text-sm font-bold text-slate-700">System Online: v2.4.0</span>
             </div>
-            <div class="stat-card">
-                <h4>Active CBOs</h4>
-                <p>23 Members</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-forest/20 transition-all">
+                <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Total Revenue</h4>
+                <p class="text-3xl font-black text-slate-900">$0.00</p>
+                <p class="text-xs text-leaf font-bold mt-4">+0% from last month</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-tech/20 transition-all">
+                <div class="w-12 h-12 bg-tech/10 rounded-xl flex items-center justify-center text-tech mb-6 group-hover:bg-tech group-hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Grant Allocations</h4>
+                <p class="text-3xl font-black text-slate-900">40% Reserved</p>
+                <p class="text-xs text-slate-500 mt-4">Sustainability model active</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-leaf/20 transition-all">
+                <div class="w-12 h-12 bg-leaf/10 rounded-xl flex items-center justify-center text-leaf mb-6 group-hover:bg-leaf group-hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Active CBOs</h4>
+                <p class="text-3xl font-black text-slate-900">23 Members</p>
+                <p class="text-xs text-forest font-bold mt-4">+2 new this week</p>
+            </div>
+        </div>
+
+        <!-- Recent Activity Placeholder -->
+        <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100">
+            <h3 class="text-xl font-bold text-slate-900 mb-8">Recent System Activity</h3>
+            <div class="space-y-6">
+                {% for i in range(3) %}
+                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-forest/5 rounded-full flex items-center justify-center text-forest">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-900">New Farmer Registration</p>
+                            <p class="text-xs text-slate-500">Mahiakalo Progressive Group joined the network.</p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">2h ago</span>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </main>

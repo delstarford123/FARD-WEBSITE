@@ -3,35 +3,62 @@
 {% block title %}Partner Pitch - FARD | Strategic Engagement{% endblock %}
 
 {% block content %}
-<section class="form-hero">
-    <div class="container text-center">
-        <h1>Strategic Partnership Pitch</h1>
-        <p>FARD bridges the gap between commercial technology and non-profit impact. Let's build a sustainable future together.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Strategic Partnership <span class="text-tech">Pitch</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            FARD bridges the gap between commercial technology and non-profit impact. Let's build a sustainable future together.
+        </p>
     </div>
 </section>
 
-<section class="form-section">
-    <div class="container">
-        <div class="form-container partner-pitch">
-            <div class="pitch-info">
-                <h3>Our 60/40 Revenue Structure</h3>
-                <p>We pride ourselves on a unique sustainability model where 60% of commercial revenue from our tech tools directly funds our 40% non-profit community grants. Partnerships help us scale this impact.</p>
+<!-- Form Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Sustainability Model Card -->
+        <div class="bg-forest p-10 lg:p-12 rounded-[3rem] text-white shadow-2xl mb-12 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-tech/20 blur-3xl rounded-full group-hover:bg-tech/30 transition-colors"></div>
+            <div class="relative z-10">
+                <h3 class="text-2xl font-bold mb-4 text-tech">Our 60/40 Revenue Structure</h3>
+                <p class="text-slate-200 leading-relaxed">
+                    We pride ourselves on a unique sustainability model where 60% of commercial revenue from our tech tools directly funds our non-profit community grants. Your partnership helps us scale this impact.
+                </p>
             </div>
+        </div>
 
-            <form id="partnerForm" action="/submit-partner" method="post">
-                <div class="form-group">
-                    <label for="org_name">Organization Name *</label>
-                    <input type="text" id="org_name" name="org_name" required>
+        <!-- Pitch Form -->
+        <div class="bg-white p-10 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100">
+            <form id="partnerForm" action="/partner-pitch" method="post" class="space-y-8">
+                <div class="space-y-2">
+                    <label for="org_name" class="text-xs font-bold text-forest uppercase tracking-widest">Organization Name *</label>
+                    <input type="text" id="org_name" name="org_name" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="contact_person">Contact Person *</label>
-                        <input type="text" id="contact_person" name="contact_person" required>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label for="contact_person" class="text-xs font-bold text-forest uppercase tracking-widest">Contact Person *</label>
+                        <input type="text" id="contact_person" name="contact_person" required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
-                    <div class="form-group">
-                        <label for="partner_type">Partnership Type *</label>
-                        <select id="partner_type" name="partner_type" required>
+                    <div class="space-y-2">
+                        <label for="partner_type" class="text-xs font-bold text-forest uppercase tracking-widest">Partnership Type *</label>
+                        <select id="partner_type" name="partner_type" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all appearance-none cursor-pointer">
                             <option value="">-- Select Type --</option>
                             <option value="donor">Grant Donor / NGO</option>
                             <option value="county">County Government</option>
@@ -41,19 +68,26 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="initiative">Proposed Initiative / Area of Interest *</label>
-                    <textarea id="initiative" name="initiative" rows="4" placeholder="e.g., Scaling AI crop diagnosis in Mumias North..." required></textarea>
+                <div class="space-y-2">
+                    <label for="initiative" class="text-xs font-bold text-forest uppercase tracking-widest">Proposed Initiative / Area of Interest *</label>
+                    <textarea id="initiative" name="initiative" rows="4" placeholder="e.g., Scaling AI crop diagnosis in Mumias North..." required
+                              class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="commitment">Expected Commitment / Resource Sharing</label>
-                    <textarea id="commitment" name="commitment" rows="2" placeholder="Funding, expertise, infrastructure, etc."></textarea>
+                <div class="space-y-2">
+                    <label for="commitment" class="text-xs font-bold text-forest uppercase tracking-widest">Expected Commitment / Resource Sharing</label>
+                    <textarea id="commitment" name="commitment" rows="2" placeholder="Funding, expertise, infrastructure, etc."
+                              class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-secondary">Submit Pitch</button>
+                <div class="pt-8">
+                    <button type="submit" 
+                            class="w-full bg-tech hover:bg-tech/90 text-white font-bold py-5 rounded-2xl shadow-xl shadow-tech/20 transition-all transform hover:-translate-y-1">
+                        Submit Pitch
+                    </button>
+                </div>
             </form>
-            <div id="formFeedback" class="hidden"></div>
+            <div id="formFeedback" class="hidden mt-8 p-6 rounded-2xl"></div>
         </div>
     </div>
 </section>

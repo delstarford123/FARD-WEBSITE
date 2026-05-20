@@ -3,54 +3,102 @@
 {% block title %}Project Details - FARD{% endblock %}
 
 {% block content %}
-<article class="project-detail">
-    <section class="detail-hero">
-        <div class="container">
-            <a href="/projects" class="back-link">← Back to Projects</a>
-            <h1 id="projectTitle">Project Detail</h1>
-            <p id="projectTagline" class="tagline">Deep-dive into our initiatives.</p>
+<article class="min-h-screen bg-slate-50">
+    <!-- Detail Hero -->
+    <section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+        <!-- Decorative Overlay -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <a href="/projects" class="inline-flex items-center space-x-2 text-tech font-bold hover:text-white transition-colors mb-8 group">
+                <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <span>Back to Projects</span>
+            </a>
+            <h1 id="projectTitle" class="text-4xl lg:text-6xl font-bold mb-4">Project Detail</h1>
+            <p id="projectTagline" class="text-slate-200 text-lg lg:text-xl max-w-2xl leading-relaxed">Deep-dive into our initiatives.</p>
         </div>
     </section>
 
-    <div class="container">
-        <div class="detail-layout">
-            <div class="detail-main">
-                <div class="detail-section">
-                    <h2>The Challenge</h2>
-                    <p id="projectChallenge">Detailed description of the problem being addressed.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Main Content -->
+            <div class="lg:col-span-8 space-y-16">
+                <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center space-x-3">
+                        <span class="w-8 h-8 bg-forest/10 rounded-lg flex items-center justify-center text-forest text-sm">01</span>
+                        <span>The Challenge</span>
+                    </h2>
+                    <p id="projectChallenge" class="text-slate-600 leading-relaxed text-lg italic">
+                        Detailed description of the problem being addressed.
+                    </p>
                 </div>
 
-                <div class="detail-section">
-                    <h2>Our Solution</h2>
-                    <p id="projectSolution">Detailed description of the technology or methodology implemented.</p>
-                    <div class="image-placeholder large" style="margin-top: 1.5rem;">PROJECT VISUAL</div>
+                <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center space-x-3">
+                        <span class="w-8 h-8 bg-tech/10 rounded-lg flex items-center justify-center text-tech text-sm">02</span>
+                        <span>Our Solution</span>
+                    </h2>
+                    <p id="projectSolution" class="text-slate-600 leading-relaxed mb-10">
+                        Detailed description of the technology or methodology implemented.
+                    </p>
+                    <div class="aspect-video bg-slate-100 rounded-3xl flex items-center justify-center text-slate-400 font-bold border-2 border-dashed border-slate-200 group overflow-hidden relative">
+                        <div class="absolute inset-0 bg-forest/5 group-hover:bg-forest/10 transition-colors"></div>
+                        <span class="relative z-10 text-2xl uppercase tracking-widest text-forest/20">Project Visual</span>
+                    </div>
                 </div>
 
-                <div class="detail-section">
-                    <h2>Impact to Date</h2>
-                    <ul id="projectImpact">
-                        <li>Metric 1</li>
-                        <li>Metric 2</li>
-                        <li>Metric 3</li>
+                <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center space-x-3">
+                        <span class="w-8 h-8 bg-leaf/10 rounded-lg flex items-center justify-center text-leaf text-sm">03</span>
+                        <span>Impact to Date</span>
+                    </h2>
+                    <ul id="projectImpact" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Filled by JS -->
                     </ul>
                 </div>
             </div>
 
-            <aside class="detail-sidebar">
-                <div class="sidebar-box">
-                    <h3>Project Status</h3>
-                    <p id="projectStatus" class="status-active">Active / Scaling</p>
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 space-y-8">
+                <!-- Status Box -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                    <h3 class="text-xs font-bold text-forest uppercase tracking-widest mb-4">Project Status</h3>
+                    <div id="projectStatus" class="inline-flex items-center space-x-2 px-4 py-2 bg-leaf/10 text-leaf font-bold rounded-full text-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-leaf opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-leaf"></span>
+                        </span>
+                        <span>Active / Scaling</span>
+                    </div>
                 </div>
-                <div class="sidebar-box">
-                    <h3>Technology Used</h3>
-                    <ul id="projectTech" class="tech-list">
+
+                <!-- Tech Stack Box -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                    <h3 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Technology Stack</h3>
+                    <div id="projectTech" class="flex flex-wrap gap-3">
                         <!-- Filled by JS -->
-                    </ul>
+                    </div>
                 </div>
-                <div class="sidebar-box promo-box">
-                    <h3>Want to support?</h3>
-                    <p>Help us scale this project to more counties.</p>
-                    <a href="/get-involved#partner" class="btn btn-secondary btn-block">Partner With Us</a>
+
+                <!-- CTA Box -->
+                <div class="bg-forest p-10 rounded-[2.5rem] shadow-2xl text-white relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-tech/20 blur-3xl rounded-full"></div>
+                    <div class="relative z-10 space-y-6">
+                        <h3 class="text-2xl font-bold leading-tight">Want to support this initiative?</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Help us scale this project to more counties across Kenya.</p>
+                        <a href="/get-involved#partner" class="inline-block w-full py-4 bg-tech text-white font-bold rounded-2xl text-center hover:bg-tech/90 transition-all transform hover:-translate-y-1 shadow-lg shadow-tech/20">
+                            Partner With Us
+                        </a>
+                    </div>
                 </div>
             </aside>
         </div>
@@ -60,7 +108,6 @@
 
 {% block scripts %}
 <script>
-    // Simple mock project data for demonstration
     const projectData = {
         'ai-crop': {
             title: 'AI-Driven Crop Diagnosis',
@@ -101,23 +148,32 @@
             document.getElementById('projectTagline').innerText = project.tagline;
             document.getElementById('projectChallenge').innerText = project.challenge;
             document.getElementById('projectSolution').innerText = project.solution;
-            document.getElementById('projectStatus').innerText = project.status;
 
             const impactList = document.getElementById('projectImpact');
             impactList.innerHTML = '';
             project.impact.forEach(item => {
                 const li = document.createElement('li');
-                li.innerText = item;
+                li.className = 'flex items-start space-x-4 p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-white hover:shadow-md transition-all';
+                li.innerHTML = `
+                    <div class="w-8 h-8 bg-leaf/10 rounded-full flex items-center justify-center text-leaf flex-shrink-0">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <span class="text-slate-600 text-sm leading-relaxed">${item}</span>
+                `;
                 impactList.appendChild(li);
             });
 
             const techList = document.getElementById('projectTech');
             techList.innerHTML = '';
             project.tech.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                techList.appendChild(li);
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200';
+                span.innerText = item;
+                techList.appendChild(span);
             });
+
+            const statusEl = document.getElementById('projectStatus');
+            statusEl.querySelector('span:last-child').innerText = project.status;
         }
     });
 </script>

@@ -1,20 +1,68 @@
-<!-- Main navigation header -->
-<nav>
-    <div class="container nav-container">
-        <a href="{{ url_for('index') }}" class="logo">FARD</a>
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('pillars') }}">Pillars</a></li>
-            <li><a href="{{ url_for('projects') }}">Projects</a></li>
-            <li><a href="{{ url_for('get_involved') }}">Get Involved</a></li>
-            <li><a href="{{ url_for('transparency') }}">Transparency</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            {% if session.get('user_id') %}
-                <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}" class="btn-login">Login</a></li>
-            {% endif %}
-        </ul>
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ mobileMenuOpen: false }">
+    <div class="flex justify-between h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="{{ url_for('static', filename='images/branding/FINAL BEST LOGO.png') }}" 
+                     alt="FARD Official Logo" 
+                     class="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                     loading="eager">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="{{ url_for('about') }}" class="text-slate-600 hover:text-forest font-medium transition-colors duration-200">About Us</a>
+            <a href="{{ url_for('pillars') }}" class="text-slate-600 hover:text-forest font-medium transition-colors duration-200">Our Pillars</a>
+            <a href="{{ url_for('projects') }}" class="text-slate-600 hover:text-forest font-medium transition-colors duration-200">Impact Projects</a>
+            <a href="{{ url_for('news') }}" class="text-slate-600 hover:text-forest font-medium transition-colors duration-200">News</a>
+            
+            <div class="flex items-center space-x-4 ml-4">
+                <a href="{{ url_for('login') }}" class="px-5 py-2.5 text-forest font-bold hover:text-tech transition-colors">Login</a>
+                <a href="{{ url_for('get_involved') }}" class="px-6 py-2.5 bg-forest hover:bg-forest/90 text-white font-bold rounded-full shadow-lg shadow-forest/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                    Take Action
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                    type="button" 
+                    class="p-2 rounded-md text-slate-600 hover:text-forest hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-forest"
+                    aria-controls="mobile-menu" 
+                    :aria-expanded="mobileMenuOpen">
+                <span class="sr-only">Open main menu</span>
+                <!-- Icon: Menu -->
+                <svg x-show="!mobileMenuOpen" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Icon: Close -->
+                <svg x-show="mobileMenuOpen" x-cloak class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" 
+         x-cloak
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="md:hidden pb-6 border-t border-slate-100" 
+         id="mobile-menu">
+        <div class="pt-4 space-y-2">
+            <a href="{{ url_for('about') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">About Us</a>
+            <a href="{{ url_for('pillars') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">Our Pillars</a>
+            <a href="{{ url_for('projects') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">Impact Projects</a>
+            <a href="{{ url_for('news') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">News</a>
+            
+            <div class="mt-6 px-4 space-y-3">
+                <a href="{{ url_for('login') }}" class="block w-full text-center px-6 py-3 border-2 border-slate-200 text-forest font-bold rounded-xl">Login</a>
+                <a href="{{ url_for('get_involved') }}" class="block w-full text-center px-6 py-3 bg-forest text-white font-bold rounded-xl shadow-lg">Take Action</a>
+            </div>
+        </div>
     </div>
 </nav>

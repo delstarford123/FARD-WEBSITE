@@ -3,39 +3,60 @@
 {% block title %}Login - FARD | Secure Access{% endblock %}
 
 {% block content %}
-<section class="auth-section">
-    <div class="container">
-        <div class="auth-container">
-            <div class="auth-header text-center">
-                <h2>Secure Login</h2>
-                <p>Access your dashboard and manage your agricultural impact.</p>
+<section class="min-h-[90vh] flex items-center justify-center bg-slate-50 py-24">
+    <div class="max-w-md w-full px-4 sm:px-6">
+        <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden group">
+            <!-- Decorative Accent -->
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-tech/5 blur-3xl rounded-full group-hover:bg-tech/10 transition-colors"></div>
+            
+            <div class="text-center relative z-10 mb-12">
+                <div class="w-20 h-20 bg-forest/10 rounded-3xl flex items-center justify-center mx-auto mb-8 text-forest">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Secure Login</h2>
+                <p class="text-slate-500 mt-3 text-sm">Access your dashboard and manage your agricultural impact.</p>
             </div>
 
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
+                    <div class="mb-8 space-y-3">
+                        {% for category, message in messages %}
+                            <div class="p-4 rounded-xl text-sm font-bold flex items-center space-x-3 {% if category == 'error' %}bg-red-50 text-red-600 border border-red-100{% else %}bg-leaf/10 text-forest border border-leaf/20{% endif %}">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             {% endwith %}
 
-            <form action="{{ url_for('login') }}" method="POST">
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+            <form action="{{ url_for('login') }}" method="POST" class="space-y-6 relative z-10">
+                <div class="space-y-2">
+                    <label for="email" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password *</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <label for="password" class="text-xs font-bold text-forest uppercase tracking-widest ml-1">Password</label>
+                        <a href="#" class="text-[10px] font-bold text-tech uppercase hover:text-forest transition-colors">Forgot?</a>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-forest hover:bg-forest/90 text-white font-bold py-5 rounded-2xl shadow-xl shadow-forest/20 transition-all transform hover:-translate-y-1">
+                        Access Dashboard
+                    </button>
+                </div>
             </form>
 
-            <div class="auth-links text-center">
-                <p><a href="#">Forgot Password?</a></p>
-                <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+            <div class="mt-12 pt-8 border-t border-slate-100 text-center relative z-10">
+                <p class="text-slate-500 text-sm">
+                    Don't have an account? 
+                    <a href="{{ url_for('register') }}" class="text-tech font-bold hover:text-forest transition-colors underline decoration-2 underline-offset-4">Register here</a>
+                </p>
             </div>
         </div>
     </div>

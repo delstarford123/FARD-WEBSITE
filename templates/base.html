@@ -1,45 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}FARD Website{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO & Open Graph Tags -->
+    <title>{% block title %}FARD | Food, Artificial Intelligence Research & Development{% endblock %}</title>
+    <meta name="description" content="FARD is a Kenya-based CBO merging AI technology with smart agriculture to empower rural communities. Discover our agroecology initiatives and sustainable development goals.">
+    <meta name="keywords" content="AI Agriculture Kenya, Smart Farming, Community Empowerment, Agroecology, Food Security, FARD">
+    <meta property="og:title" content="FARD - Bridging AI and Sustainable Agriculture">
+    <meta property="og:description" content="Empowering Kenyan communities through technology-driven agricultural innovation.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/branding/logo_og.png') }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS (CDN for Draft) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#14532D', // Primary Agri
+                        leaf: '#22C55E',   // Success/Icons
+                        cyber: '#1E3A8A',  // Tech Trust
+                        tech: '#06B6D4',   // AI Accents
+                        amber: '#F59E0B',  // CTA/Impact
+                        soil: '#78350F',   // Agri Borders
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Alpine.js for lightweight interactivity (Mobile menus, tabs) -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+
     {% block head %}{% endblock %}
 </head>
-<body>
-    {% include 'components/_navbar.html' %}
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-forest/10 selection:text-forest">
 
-    <main>
+    <!-- Skip to Content Link (a11y) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-forest border-b-2 border-leaf">
+        Skip to content
+    </a>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 w-full glass border-b border-slate-200">
+        {% include 'components/_navbar.html' %}
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" role="main" class="min-h-screen">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Global Image Modal -->
-    <div id="imageModal" class="image-modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="img01">
-    </div>
-
+    <!-- Footer -->
     {% include 'components/_footer.html' %}
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>
-        function openModal(element) {
-            var modal = document.getElementById("imageModal");
-            var modalImg = document.getElementById("img01");
-            var img = element.getElementsByTagName('img')[0];
-            if (img) {
-                modal.style.display = "block";
-                modalImg.src = img.src;
-            }
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("imageModal");
-            modal.style.display = "none";
-        }
-    </script>
+    <!-- Common Scripts -->
     {% block scripts %}{% endblock %}
 </body>
 </html>

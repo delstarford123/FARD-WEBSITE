@@ -3,66 +3,109 @@
 {% block title %}Farmer Intake - FARD | Join the Network{% endblock %}
 
 {% block content %}
-<section class="form-hero">
-    <div class="container text-center">
-        <h1>Farmer & Cooperative Intake</h1>
-        <div class="fee-notice">
-            <p><strong>Join the FARD movement!</strong> To officially register your cooperative or as an individual agripreneur, a one-time non-refundable fee of <strong>KSh 1,000</strong> is required, followed by a monthly subscription of <strong>KSh 500</strong>. <em>Note: Active participation is required; failure to remit subscriptions for 3 consecutive months may result in account deactivation.</em></p>
-        </div>
-        <p>Register your group to access precision agriculture tools, BSF systems, and direct market linkages.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Farmer & <span class="text-tech">Cooperative</span> Intake</h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Register your group to access precision agriculture tools, BSF systems, and direct market linkages.
+        </p>
     </div>
 </section>
 
-<section class="form-section">
-    <div class="container">
-        <div class="form-container farmer-intake">
-            <form id="farmerForm" action="/submit-farmer" method="post">
-                <div class="form-group">
-                    <label for="coop_name">Cooperative / SACCO / Group Name *</label>
-                    <input type="text" id="coop_name" name="coop_name" placeholder="e.g., Mumias Progressive Farmers" required>
+<!-- Form Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Fee Notice Card -->
+        <div class="bg-white p-8 rounded-3xl border-l-8 border-tech shadow-xl mb-12 transform hover:scale-[1.01] transition-transform">
+            <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-tech/10 rounded-full flex items-center justify-center text-tech flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Registration Details</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        To officially register, a one-time non-refundable fee of <strong class="text-forest">KSh 1,000</strong> is required, followed by a monthly subscription of <strong class="text-forest">KSh 500</strong>.
+                    </p>
+                    <p class="text-slate-400 text-xs mt-2 italic">
+                        Note: Failure to remit subscriptions for 3 consecutive months may result in account deactivation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="bg-white p-10 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100">
+            <form id="farmerForm" action="/farmer-intake" method="post" class="space-y-8">
+                <div class="space-y-2">
+                    <label for="coop_name" class="text-xs font-bold text-forest uppercase tracking-widest">Cooperative / SACCO / Group Name *</label>
+                    <input type="text" id="coop_name" name="coop_name" placeholder="e.g., Mumias Progressive Farmers" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="location">Location (Ward/Sub-county) *</label>
-                        <input type="text" id="location" name="location" required>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label for="location" class="text-xs font-bold text-forest uppercase tracking-widest">Location (Ward/Sub-county) *</label>
+                        <input type="text" id="location" name="location" required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
-                    <div class="form-group">
-                        <label for="member_count">Number of Active Members *</label>
-                        <input type="number" id="member_count" name="member_count" min="1" required>
+                    <div class="space-y-2">
+                        <label for="member_count" class="text-xs font-bold text-forest uppercase tracking-widest">Number of Active Members *</label>
+                        <input type="number" id="member_count" name="member_count" min="1" required
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="crops">Primary Crops / Livestock *</label>
-                    <input type="text" id="crops" name="crops" placeholder="Maize, Sugarcane, Dairy, etc." required>
+                <div class="space-y-2">
+                    <label for="crops" class="text-xs font-bold text-forest uppercase tracking-widest">Primary Crops / Livestock *</label>
+                    <input type="text" id="crops" name="crops" placeholder="Maize, Sugarcane, Dairy, etc." required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all">
                 </div>
 
-                <div class="form-group">
-                    <label>What are your biggest challenges? (Select all that apply)</label>
-                    <div class="checkbox-grid">
-                        <label><input type="checkbox" name="challenges" value="market"> Low Market Prices</label>
-                        <label><input type="checkbox" name="challenges" value="pests"> Pests & Diseases</label>
-                        <label><input type="checkbox" name="challenges" value="soil"> Soil Infertility</label>
-                        <label><input type="checkbox" name="challenges" value="waste"> Crop Waste Management</label>
-                        <label><input type="checkbox" name="challenges" value="credit"> Access to Credit</label>
+                <div class="space-y-4">
+                    <label class="text-xs font-bold text-forest uppercase tracking-widest block">Biggest Challenges (Select all that apply)</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {% for challenge in [('market', 'Low Market Prices'), ('pests', 'Pests & Diseases'), ('soil', 'Soil Infertility'), ('waste', 'Crop Waste Management'), ('credit', 'Access to Credit')] %}
+                        <label class="flex items-center space-x-3 p-4 bg-slate-50 rounded-xl border border-slate-100 cursor-pointer hover:bg-slate-100 transition-colors">
+                            <input type="checkbox" name="challenges" value="{{ challenge[0] }}" class="w-5 h-5 text-forest border-slate-300 rounded focus:ring-forest">
+                            <span class="text-slate-600 text-sm">{{ challenge[1] }}</span>
+                        </label>
+                        {% endfor %}
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="interests">Interested In:</label>
-                    <select id="interests" name="interests" multiple class="multi-select">
+                <div class="space-y-2">
+                    <label for="interests" class="text-xs font-bold text-forest uppercase tracking-widest">Interested In</label>
+                    <select id="interests" name="interests" multiple
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-tech focus:border-transparent transition-all min-h-[150px]">
                         <option value="ai">AI Crop Diagnosis</option>
                         <option value="bsf">BSF Circular Economy</option>
                         <option value="markets">Direct Market Access</option>
                         <option value="training">STEAM Youth Training</option>
                     </select>
-                    <small>Hold Ctrl (Cmd) to select multiple</small>
+                    <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mt-2">Hold Ctrl (Cmd) to select multiple</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit Registration</button>
+                <div class="pt-8">
+                    <button type="submit" 
+                            class="w-full bg-forest hover:bg-forest/90 text-white font-bold py-5 rounded-2xl shadow-xl shadow-forest/20 transition-all transform hover:-translate-y-1">
+                        Submit Registration
+                    </button>
+                </div>
             </form>
-            <div id="formFeedback" class="hidden"></div>
+            <div id="formFeedback" class="hidden mt-8 p-6 rounded-2xl"></div>
         </div>
     </div>
 </section>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Terms of Service - FARD | Engagement Framework{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Terms of <span class="text-tech">Service</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Establishing the legal ground for collaborative growth and technological advancement in our communities.
+        </p>
+    </div>
+</section>
+
+<!-- Terms Content -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white p-10 lg:p-16 rounded-[3rem] shadow-2xl border border-slate-100 space-y-12">
+            
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-forest/10 rounded-lg flex items-center justify-center text-forest text-sm">01</span>
+                    <span>Membership & Fees</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Official registration with FARD requires a non-refundable registration fee of KSh 1,000 and a monthly subscription of KSh 500. These funds support community grants and the operational overhead of our technology platforms. Membership accounts may be deactivated after 3 months of non-payment.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-tech/10 rounded-lg flex items-center justify-center text-tech text-sm">02</span>
+                    <span>Acceptable Use of AI Tools</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Users of our AI crop diagnosis and market intelligence tools must provide accurate information. Misuse of the platform to spread false agricultural data or attempt to bypass security measures is strictly prohibited and will lead to immediate termination of access.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-leaf/10 rounded-lg flex items-center justify-center text-leaf text-sm">03</span>
+                    <span>Liability Limitation</span>
+                </h2>
+                <p class="text-slate-600 leading-relaxed">
+                    While our AI models provide high-accuracy recommendations, FARD does not guarantee specific agricultural yields or market outcomes. All recommendations should be applied with professional care and in accordance with local safety standards.
+                </p>
+            </div>
+
+            <div class="pt-12 border-t border-slate-100 text-center">
+                <p class="text-sm text-slate-500 italic">By using our services, you agree to these terms and the governing laws of the Republic of Kenya.</p>
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-4">Last Updated: May 20, 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

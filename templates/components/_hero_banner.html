@@ -1,4 +1,15 @@
 <!-- Reusable top banner for sub-pages -->
-<section class="hero-banner">
-    <h1>{% block banner_title %}{% endblock %}</h1>
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-4">
+            {% block banner_title %}{% endblock %}
+        </h1>
+        <div class="w-24 h-1 bg-tech mx-auto rounded-full"></div>
+    </div>
 </section>

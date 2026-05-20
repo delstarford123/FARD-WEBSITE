@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}404 - Page Not Found | FARD{% endblock %}
+
+{% block content %}
+<section class="min-h-[70vh] flex items-center justify-center bg-slate-50 relative overflow-hidden">
+    <!-- Background Accents -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-forest/5 rounded-full blur-[120px]"></div>
+    
+    <div class="text-center space-y-8 p-12 relative z-10">
+        <h1 class="text-[12rem] lg:text-[15rem] font-black text-forest/10 leading-none select-none">404</h1>
+        <div class="space-y-4">
+            <h2 class="text-4xl font-bold text-slate-900">Lost in the <span class="text-forest">Fields?</span></h2>
+            <p class="text-slate-500 max-w-md mx-auto text-lg leading-relaxed">
+                The page you are looking for has been moved or doesn't exist. Let's get you back to the innovation hub.
+            </p>
+        </div>
+        <div class="pt-8">
+            <a href="{{ url_for('index') }}" class="inline-block bg-forest hover:bg-forest/90 text-white font-bold px-10 py-5 rounded-[2rem] shadow-xl shadow-forest/20 transition-all transform hover:-translate-y-1">
+                Return to Hub
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

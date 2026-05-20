@@ -1,218 +1,217 @@
 {% extends 'base.html' %}
+{% from 'components/_leadership_card.html' import leadership_card %}
 
-{% block title %}About Us - FARD | Organizational Profile & Prospectus{% endblock %}
+{% block title %}About Us | FARD - Organizational Profile & Strategic Prospectus{% endblock %}
 
 {% block content %}
-<!-- Hero Banner -->
-{% include 'components/_hero_banner.html' with context %}
-{% block banner_title %}Organizational Profile{% endblock %}
-
-<section class="profile-header bg-white">
-    <div class="container">
-        <div class="prospectus-meta">
-            <p><strong>Location:</strong> Off Kakamega - Mumias Road | Mahiakalo Ward, Kakamega Central, Kenya</p>
-            <p><strong>Status:</strong> Registered Community Based Organization (CBO)</p>
-            <p><strong>Founding Partners:</strong> Delstarford Works (DSW) & Farmerman Systems Group (FS)</p>
-        </div>
+<!-- Page Header -->
+<section class="relative pt-32 pb-20 overflow-hidden bg-forest">
+    <!-- Background Pattern Overlay -->
+    <div class="absolute inset-0 z-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
     </div>
-</section>
 
-<section class="executive-summary">
-    <div class="container">
-        <h2>Executive Summary</h2>
-        <div class="content-box">
-            <p>FARD is a pioneering Community-Based Organization (CBO) established in Kakamega County to transform the local agricultural landscape. Formed as a strategic partnership between <strong>Delstarford Works (DSW)</strong>—experts in AI-powered software—and <strong>Farmerman Systems Group (FS)</strong>—experts in grassroots agronomy and community mobilization—FARD serves as a central hub designed to empower rural communities.</p>
-            <p>By leveraging agricultural intelligence, smart farming technologies, and robust market linkages, FARD bridges the gap between digital innovation and on-ground farming, aiming to transition smallholder farmers from subsistence farming to profitable, resilient agribusinesses.</p>
-        </div>
-    </div>
-</section>
-
-<section class="mission-vision bg-white">
-    <div class="container">
-        <div class="mv-grid">
-            <div class="mv-card">
-                <h3>Our Vision</h3>
-                <p>To foster a thriving, resilient ecosystem for agripreneurs in Kakamega County through agricultural intelligence, smart farming technologies, and sustainable agroecology.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+        <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">Organizational <span class="text-tech">Profile</span></h1>
+        <div class="flex flex-wrap justify-center lg:justify-start gap-4 text-slate-200 text-sm uppercase tracking-widest font-semibold">
+            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-white/10 backdrop-blur-sm">
+                <span class="text-leaf">Location:</span> Kakamega, Kenya
             </div>
-            <div class="mv-card">
-                <h3>Our Mission</h3>
-                <p>To act as an operational and strategic bridge that empowers rural communities by transitioning smallholder farmers from subsistence farming to profitable agribusinesses, leveraging data-driven market linkages and STEAM inclusion.</p>
+            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-white/10 backdrop-blur-sm">
+                <span class="text-leaf">Status:</span> Registered CBO
+            </div>
+            <div class="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg border border-white/10 backdrop-blur-sm">
+                <span class="text-leaf">Founded:</span> 2024
             </div>
         </div>
     </div>
 </section>
 
-<section class="strategic-pillars">
-    <div class="container">
-        <h2>Our Strategic Pillars</h2>
-        <div class="pillars-prospectus-grid">
-            <div class="pillar-mini-card">
-                <h4>1. Agriculture & Agribusiness</h4>
-                <p>Promoting sustainable, climate-resilient farming practices that protect Kakamega's ecosystem while maximizing yields.</p>
-            </div>
-            <div class="pillar-mini-card">
-                <h4>2. Data-Driven Market Linkage</h4>
-                <p>Connecting farmer data directly to market demand, eliminating exploitative middlemen and ensuring fair pricing.</p>
-            </div>
-            <div class="pillar-mini-card">
-                <h4>3. Market Intelligence</h4>
-                <p>Providing AI-driven insights, pricing trends, and weather data to facilitate informed planting and selling decisions.</p>
-            </div>
-            <div class="pillar-mini-card">
-                <h4>4. Precision Agriculture</h4>
-                <p>Introducing technology-driven farming techniques to optimize inputs and maximize outputs.</p>
-            </div>
-            <div class="pillar-mini-card">
-                <h4>5. STEAM Inclusion</h4>
-                <p>Socioeconomic empowerment of women and youth by integrating STEAM education for the next gen of agripreneurs.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="partnership-model bg-white">
-    <div class="container">
-        <h2>The Partnership Model</h2>
-        <div class="model-flex">
-            <div class="model-box">
-                <h4>Delstarford Works (DSW)</h4>
-                <p>Provides the technological backbone, leading the design and deployment of AI-powered software solutions, data infrastructure, and digital tools tailored for rural communities.</p>
-            </div>
-            <div class="model-box">
-                <h4>Farmerman Systems Group (FS)</h4>
-                <p>Drives the grassroots execution, leading community mobilization, cooperative engagement, system implementation, and on-ground agroecology training.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Leadership Section -->
-<section class="leadership">
-    <div class="container">
-        <h2>Leadership & Governance</h2>
-        
-        <div class="governance-notice">
-            <p>FARD is governed by a democratically elected Management Committee and a specialized Board of Directors, bringing together 23 founding members. We serve structured <strong>Two-Year Terms</strong> to ensure fresh, innovative leadership.</p>
-        </div>
-
-        <div class="wing-section">
-            <h3>Wing A: Executive Management Committee</h3>
-            <p class="section-desc">Responsible for the day-to-day administration, legal compliance, and overarching strategic execution of the CBO.</p>
-            <div class="leadership-grid">
-                {% with name="Sobani Ayanda", role="Chairperson", mandate="The principal executive officer of FARD (representing FS). Presides over all board and general meetings.", image_url=url_for('static', filename='images/team/farmerman.jpeg') %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Delstarford Isaiah", role="Vice Chairperson", mandate="Secondary executive officer (representing DSW). Chief technology strategist overseeing AI-powered software integration.", image_url=url_for('static', filename='images/team/founder1.jpeg') %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Charity Wanjiro", role="Secretary", mandate="Administrative and compliance anchor. Manages official correspondence, minutes, and the member register.", image_url=url_for('static', filename='images/team/Charity Wanjiro.jpeg') %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Luke Amolo", role="Treasurer", mandate="Chief financial custodian. Manages the FARD CBO bank account and oversees the 60/40 revenue implementation." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Caren Sobani", role="Community Strategist", mandate="The bridge to the grassroots. Designs engagement strategies for local cooperatives and SACCOs." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-            </div>
-        </div>
-
-        <div class="wing-section">
-            <h3>Wing B: Board of Directors</h3>
-            <p class="section-desc">Oversees specialized departments ensuring every pillar is expertly managed.</p>
-            <div class="leadership-grid">
-                {% with name="Collins Rao", role="Director of Health", mandate="Ensures occupational safety and promotes health awareness programs.", image_url=url_for('static', filename='images/team/COLLINS.jpeg') %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Brian Joel Onyango", role="Director of Marketing", mandate="Builds brand visibility and attracts B2B partners, NGOs, and government grants." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Elder John Alaak", role="Director of Food & Nutrition", mandate="Ensures household food security and promotes high-nutrition indigenous crops." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Dr. Ferdinand Lubobi", role="Director of Research", mandate="Leads data collection and scientific intelligence for AI systems." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Peter Wekesa / Brian Asuga", role="Director of Children's Activities", mandate="Drives STEAM inclusion through tech-camps and agricultural coding clubs." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Chris Marvin", role="Director of Agriculture", mandate="Lead agronomist implementing precision farming techniques." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Christine", role="Director of Disability", mandate="Ensures FARD's programs and software are accessible to PWDs." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Bobby Ashley", role="Director of Games & Sports", mandate="Uses sports as a mobilization tool to engage youth." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Goffrey Otieno", role="Director of Community Mobilization", mandate="Leads village-level barazas and registers new cooperatives." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Omar Kasera", role="Director of Software Dev", mandate="Technical project manager building AI software and data platforms." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-
-                {% with name="Isaiah Okuna", role="Director of Business", mandate="Focuses on monetization and structures B2B contracts for sustainable revenue." %}
-                    {% include 'components/_leadership_card.html' %}
-                {% endwith %}
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="financial-model bg-white">
-    <div class="container">
-        <h2>Financial & Operational Model</h2>
-        <div class="content-box">
-            <p>FARD operates a highly transparent, dual-purpose financial structure designed to attract grants while sustaining technological innovation:</p>
-            <div class="model-grid">
-                <div class="model-item">
-                    <h4>Non-Profit Grant Management</h4>
-                    <p>FARD acts as the funding vehicle for philanthropic grants, NGO partnerships, and county funds. 100% of these funds are utilized strictly for community operations, mobilization, and stipends.</p>
+<!-- Executive Summary -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-5 space-y-6">
+                <h2 class="text-forest font-bold uppercase tracking-widest text-sm">Our Essence</h2>
+                <h3 class="text-4xl font-bold text-slate-900 leading-tight">Bridging Digital Innovation and Grassroots Agronomy.</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    FARD is a pioneering Community-Based Organization established to transform the agricultural landscape of Kakamega County. We serve as a strategic hub where AI-powered technology meets sustainable community mobilization.
+                </p>
+                <div class="p-6 bg-slate-50 border-l-4 border-forest rounded-r-2xl">
+                    <p class="text-forest font-semibold italic text-lg">"Our goal is to transition smallholder farmers from subsistence farming to profitable, resilient agribusinesses through data-driven market linkages."</p>
                 </div>
-                <div class="model-item">
-                    <h4>The 60/40 Revenue Share</h4>
-                    <p>For monetized commercial projects executed jointly by DSW and FS, revenues are split: <strong>60%</strong> remains within the CBO for community development, while <strong>40%</strong> is distributed equally to DSW (20%) and FS (20%) for growth and technology overhead.</p>
+            </div>
+            
+            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Vision Card -->
+                <div class="p-10 bg-white rounded-3xl space-y-4 shadow-lg border border-slate-100 group hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 bg-tech/10 rounded-xl flex items-center justify-center mb-6 text-tech group-hover:bg-tech group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900">Our Vision</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">To foster a thriving, resilient ecosystem for agripreneurs in Kenya through agricultural intelligence and sustainable agroecology.</p>
                 </div>
+                <!-- Mission Card -->
+                <div class="p-10 bg-white rounded-3xl space-y-4 shadow-lg border border-slate-100 group hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center mb-6 text-forest group-hover:bg-forest group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-900">Our Mission</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">To act as an operational bridge that empowers rural communities by transitioning farmers to profitable agribusinesses via STEAM inclusion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Strategic Pillars -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+        <h2 class="text-forest font-bold uppercase tracking-widest text-sm mb-4">The FARD Framework</h2>
+        <h3 class="text-4xl font-bold text-slate-900">Our 5 Strategic Pillars</h3>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {% set pillars = [
+            {'n': '01', 't': 'Agribusiness', 'd': 'Promoting sustainable practices that maximize yields while protecting local ecosystems.'},
+            {'n': '02', 't': 'Market Linkage', 'd': 'Connecting farmer data directly to market demand, ensuring fair pricing and transparency.'},
+            {'n': '03', 't': 'Market Intelligence', 'd': 'AI-driven insights on pricing trends and weather patterns for informed decisions.'},
+            {'n': '04', 't': 'Precision Agri', 'd': 'Optimizing inputs through tech-driven techniques to maximize community outputs.'},
+            {'n': '05', 't': 'STEAM Inclusion', 'd': 'Empowering women and youth by integrating technology and science into agriculture.'}
+        ] %}
+        {% for pillar in pillars %}
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl transition-all group">
+            <span class="text-tech/20 font-black text-4xl block mb-4 group-hover:text-tech transition-colors">{{ pillar.n }}</span>
+            <h4 class="text-forest font-bold text-lg mb-3">{{ pillar.t }}</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">{{ pillar.d }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Partnership Model -->
+<section class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-forest rounded-[3rem] p-12 lg:p-20 relative text-white shadow-2xl">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-tech opacity-5 skew-x-12 translate-x-1/2"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-tech font-bold uppercase tracking-widest text-sm">Operational Structure</h2>
+                    <h3 class="text-4xl font-bold leading-tight">The Partnership Model</h3>
+                    <p class="text-slate-200 leading-relaxed">FARD is powered by the strategic synergy of two specialized entities, ensuring both high-tech development and grassroots execution.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-tech font-bold">DSW</div>
+                            <div>
+                                <h4 class="font-bold text-xl">Delstarford Works</h4>
+                                <p class="text-slate-300 text-sm">Technological backbone: AI software, data infra, and digital tool architecture.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-leaf font-bold">FS</div>
+                            <div>
+                                <h4 class="font-bold text-xl">Farmerman Systems</h4>
+                                <p class="text-slate-300 text-sm">Grassroots engine: Community mobilization, agronomy, and cooperative engagement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/5 border border-white/10 p-10 rounded-3xl space-y-8 backdrop-blur-sm">
+                    <h4 class="text-2xl font-bold text-tech">The 60/40 Revenue Implementation</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">Our sustainable financial model ensures community growth and tech maintenance.</p>
+                    
+                    <div class="relative h-6 bg-forest/50 rounded-full overflow-hidden flex border border-white/10">
+                        <div class="h-full bg-leaf w-[60%] flex items-center justify-center text-[10px] font-bold text-forest">60% Community</div>
+                        <div class="h-full bg-tech w-[40%] flex items-center justify-center text-[10px] font-bold text-forest">40% Growth</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div class="space-y-2">
+                            <span class="block w-3 h-3 bg-leaf rounded-full"></span>
+                            <p class="font-bold">Community Fund (60%)</p>
+                            <p class="text-slate-300 italic text-[10px]">Grant-ready funds for direct on-ground impact, training, and stipends.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="block w-3 h-3 bg-tech rounded-full"></span>
+                            <p class="font-bold">Growth & Tech (40%)</p>
+                            <p class="text-slate-300 italic text-[10px]">Distributed for AI R&D and platform overhead.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20 space-y-4">
+            <h2 class="text-forest font-bold uppercase tracking-widest text-sm">Governance</h2>
+            <h3 class="text-4xl font-bold text-slate-900">Leadership & Governance</h3>
+            <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                FARD is governed by a democratically elected Management Committee and a specialized Board of Directors, ensuring accountability and fresh innovative leadership.
+            </p>
+        </div>
+
+        <div class="mb-24">
+            <h4 class="text-slate-900 font-bold text-2xl border-b-2 border-slate-100 pb-4 mb-12 flex items-center space-x-3">
+                <span class="bg-forest text-white text-xs px-2 py-1 rounded">Wing A</span>
+                <span>Executive Management Committee</span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ leadership_card("Sobani Ayanda", "Chairperson", "The principal executive officer of FARD. Presides over all board and general meetings, representing the FS wing.", url_for('static', filename='images/team/FARMERMAN.jpeg')) }}
+                {{ leadership_card("Delstarford Isaiah", "Vice Chairperson", "Secondary executive officer representing DSW. Chief technology strategist overseeing AI-powered software integration.", url_for('static', filename='images/team/founder1.jpeg')) }}
+                {{ leadership_card("Charity Wanjiro", "Secretary", "Administrative and compliance anchor. Manages official correspondence, minutes, and the member register.", url_for('static', filename='images/team/Charity Wanjiro.jpeg')) }}
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-slate-900 font-bold text-2xl border-b-2 border-slate-100 pb-4 mb-12 flex items-center space-x-3">
+                <span class="bg-tech text-white text-xs px-2 py-1 rounded">Wing B</span>
+                <span>Specialized Board of Directors</span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {{ leadership_card("Collins Rao", "Director of Health", "Ensures occupational safety and promotes community health awareness.", url_for('static', filename='images/team/COLLINS.jpeg')) }}
+                {{ leadership_card("Dr. Ferdinand Lubobi", "Director of Research", "Leads data collection and scientific intelligence for AI systems.", url_for('static', filename='images/team/founder.jpg')) }}
+                {{ leadership_card("Chris Marvin", "Director of Agriculture", "Lead agronomist implementing precision farming techniques across cooperatives.", url_for('static', filename='images/team/FARMERMAN 2.jpeg')) }}
+                {{ leadership_card("Omar Kasera", "Director of Software Dev", "Technical project manager building AI software and high-availability data platforms.", url_for('static', filename='images/team/founder.jpg')) }}
             </div>
         </div>
     </div>
 </section>
 
 <!-- FAQ Section -->
-<section class="faq-section">
-    <div class="container">
-        <h2 class="text-center">Frequently Asked Questions</h2>
-        <div class="accordion">
-            <details class="faq-item">
-                <summary>How much does it cost to join FARD?</summary>
-                <div class="faq-content">
-                    <p>To officially register as a member (cooperative or individual), there is a one-time non-refundable registration fee of <strong>KSh 1,000</strong>. This is followed by a monthly subscription fee of <strong>KSh 500</strong> which supports our community initiatives and tech maintenance.</p>
+<section class="py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-3xl font-bold text-slate-900 mb-12">Transparency & FAQ</h2>
+        <div class="space-y-4">
+            <details class="group bg-white rounded-2xl p-6 border border-slate-200 open:ring-2 open:ring-forest transition-all duration-300 shadow-sm hover:shadow-md">
+                <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none">
+                    <span>How much does it cost to join FARD?</span>
+                    <span class="text-forest group-open:rotate-180 transition-transform">&darr;</span>
+                </summary>
+                <div class="mt-4 text-slate-600 text-sm leading-relaxed pt-4 border-t border-slate-100">
+                    To officially register as a member (cooperative or individual), there is a one-time non-refundable registration fee of KSh 1,000, followed by a monthly subscription of KSh 500.
                 </div>
             </details>
-            <details class="faq-item">
-                <summary>What happens if I miss my monthly subscription?</summary>
-                <div class="faq-content">
-                    <p>We value active participation. If subscriptions remain unpaid for 3 consecutive months, the account may be deactivated until the arrears are cleared. We encourage open communication if there are financial difficulties.</p>
-                </div>
-            </details>
-            <details class="faq-item">
-                <summary>What do my fees support?</summary>
-                <div class="faq-content">
-                    <p>Membership fees go directly toward maintaining our AI tools, managing our circular economy projects like BSF, and providing training resources to our youth and farming communities through our 60/40 non-profit model.</p>
+            <details class="group bg-white rounded-2xl p-6 border border-slate-200 open:ring-2 open:ring-forest transition-all duration-300 shadow-sm hover:shadow-md">
+                <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none">
+                    <span>What happens if I miss my monthly subscription?</span>
+                    <span class="text-forest group-open:rotate-180 transition-transform">&darr;</span>
+                </summary>
+                <div class="mt-4 text-slate-600 text-sm leading-relaxed pt-4 border-t border-slate-100">
+                    Accounts may be deactivated after 3 consecutive months of non-payment. We encourage open communication to resolve financial difficulties before deactivation.
                 </div>
             </details>
         </div>

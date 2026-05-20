@@ -3,26 +3,89 @@
 {% block title %}News & Updates - FARD{% endblock %}
 
 {% block content %}
-<section class="news-hero">
-    <div class="container text-center">
-        <h1>News & Impact Stories</h1>
-        <p>Documenting our journey and the successes of our community.</p>
+<!-- Header Section -->
+<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
+    <!-- Decorative Overlay -->
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">News & Impact <span class="text-tech">Stories</span></h1>
+        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
+            Documenting our journey and the successes of our community as we bridge digital innovation and grassroots agronomy.
+        </p>
     </div>
 </section>
 
-<section class="news-feed">
-    <div class="container">
-        <div class="news-grid">
-            <article class="news-card">
-                <div class="news-img-placeholder">IMAGE</div>
-                <div class="news-body">
-                    <span class="date">April 25, 2026</span>
-                    <h3>Success of the new BSF facility</h3>
-                    <p>The recently launched Black Soldier Fly facility in Mumias is already serving 50+ households...</p>
-                    <a href="/blog_and_news/article_detail.html" class="read-more">Read Full Story →</a>
+<!-- News Feed Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            
+            <!-- Featured News Card -->
+            <article class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 group flex flex-col h-full">
+                <div class="relative h-64 bg-slate-200 overflow-hidden">
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="px-4 py-1 bg-leaf text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Success Story</span>
+                    </div>
+                    <div class="w-full h-full flex items-center justify-center bg-forest/5 text-forest/20 text-4xl font-black group-hover:scale-110 transition-transform duration-700">
+                        BSF IMPACT
+                    </div>
+                </div>
+                <div class="p-10 flex-grow flex flex-col">
+                    <span class="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] mb-4">April 25, 2026</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-forest transition-colors">Success of the new BSF facility</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm mb-8 flex-grow">
+                        The recently launched Black Soldier Fly facility in Mumias is already serving 50+ households, reducing feed costs by 40%...
+                    </p>
+                    <a href="#" class="inline-flex items-center space-x-2 text-tech font-bold text-sm uppercase tracking-widest hover:text-forest transition-colors group/link">
+                        <span>Read Full Story</span>
+                        <svg class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
                 </div>
             </article>
-            <!-- More articles... -->
+
+            <!-- More placeholders can be added here -->
+            {% for i in range(2) %}
+            <article class="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 group flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                <div class="relative h-64 bg-slate-200 overflow-hidden">
+                    <div class="w-full h-full flex items-center justify-center bg-forest/5 text-forest/10 text-2xl font-black">
+                        UPCOMING STORY
+                    </div>
+                </div>
+                <div class="p-10 flex-grow flex flex-col">
+                    <span class="text-[10px] font-black uppercase text-slate-300 tracking-[0.2em] mb-4">Loading Impact...</span>
+                    <h3 class="text-2xl font-bold text-slate-300 mb-4">New Project Milestone</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-8 flex-grow">
+                        Stay tuned for our upcoming deep-dive into the latest technological breakthroughs in Kakamega.
+                    </p>
+                </div>
+            </article>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter CTA -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center bg-forest p-12 lg:p-20 rounded-[3rem] text-white shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-48 h-48 bg-tech/20 blur-3xl rounded-full"></div>
+        <div class="relative z-10 space-y-8">
+            <h3 class="text-3xl lg:text-4xl font-bold">Stay Updated with FARD</h3>
+            <p class="text-slate-200 text-lg">Receive our monthly impact report and technological insights directly in your inbox.</p>
+            <form action="#" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="your@email.com" class="flex-grow bg-white/10 border border-white/20 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-tech text-white placeholder-white/40">
+                <button type="submit" class="bg-tech hover:bg-tech/90 text-white font-bold px-10 py-4 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-tech/20">Subscribe</button>
+            </form>
         </div>
     </div>
 </section>
