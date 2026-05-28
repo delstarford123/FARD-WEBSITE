@@ -13,13 +13,38 @@ class MpesaService:
         self.base_url = "https://sandbox.safaricom.co.ke" # Change to production URL when ready
 
     def get_access_token(self):
-        url = f"{self.base_url}/oauth/v1/generate?grant_type=client_credentials"
-        try:
-            response = requests.get(url, auth=(self.consumer_key, self.consumer_secret), timeout=30)
-            if response.status_code == 200:
-                return response.json()['access_token']
-            print(f"M-Pesa Token Error ({response.status_code}): {response.text}")
+        # Validation for missing credentials
+        if not self.consumer_key or not self.consumer_secret:
+            print(f"M-Pesa Config Error: Consumer Key ({'Set' if self.consumer_key else 'Missing'}) or Secret ({'Set' if self.consumer_secret else 'Missing'}) is missing.")
             return None
+            
+        url = f"{self.base_url}/oauth/v1/generate?grant_type=client_credentials"
+        
+        # Manual header construction for Basic Auth to ensure transparency
+        auth_string = f"{self.consumer_key}:{self.consumer_secret}"
+        encoded_auth = base64.b64encode(auth_string.encode()).decode()
+        
+        headers = {
+            "Authorization": f"Basic {encoded_auth}",
+            "Content-Type": "application/json"
+        }
+        
+        try:
+            print(f"Attempting M-Pesa token request to: {url}")
+            response = requests.get(url, headers=headers, timeout=30)
+            
+            if response.status_code == 200:
+                token = response.json().get('access_token')
+                if token:
+                    print("M-Pesa Access Token retrieved successfully.")
+                    return token
+                else:
+                    print("M-Pesa Error: access_token missing in 200 OK response.")
+                    return None
+            else:
+                # Log full details to diagnose 400/401 errors
+                print(f"M-Pesa Token Error ({response.status_code}): {response.text}")
+                return None
         except Exception as e:
             print(f"M-Pesa Token Exception: {str(e)}")
             return None
