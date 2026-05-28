@@ -26,6 +26,34 @@ if os.path.exists(cred_path):
 else:
     print(f"Warning: Firebase service account file not found at {cred_path}")
 
+# --- Global Traffic Counter ---
+@app.before_request
+def track_traffic():
+    # Only track GET requests to main pages (ignore static files, api calls, etc.)
+    if request.method == 'GET' and not request.path.startswith('/static') and not request.path.startswith('/api'):
+        try:
+            # Simple atomic increment in Firebase
+            views_ref = db.reference('public_stats/total_page_views')
+            views_ref.set((views_ref.get() or 0) + 1)
+        except Exception as e:
+            pass # Fail silently for analytics
+
+# --- Subscriptions ---
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form.get('email')
+    if email:
+        try:
+            ref = db.reference('subscribers')
+            ref.push({
+                'email': email,
+                'timestamp': datetime.now().isoformat()
+            })
+            flash("Thank you for subscribing to FARD updates!", "success")
+        except Exception as e:
+            flash("Subscription failed. Please try again later.", "error")
+    return redirect(request.referrer or url_for('index'))
+
 # --- Main Routes ---
 
 @app.route('/')
@@ -268,7 +296,15 @@ def admin_dashboard():
     # Calculate total - ONLY count completed ones
     total_donated = sum(d.get('amount', 0) for d in donations.values() if d.get('status') == 'completed')
     
-    return render_template('dashboards/admin/index.html', donations=donations, total_donated=total_donated)
+    # Fetch subscribers
+    subscribers_ref = db.reference('subscribers')
+    subscribers = subscribers_ref.get() or {}
+    
+    # Fetch traffic
+    traffic_ref = db.reference('public_stats/total_page_views')
+    total_traffic = traffic_ref.get() or 0
+    
+    return render_template('dashboards/admin/index.html', donations=donations, total_donated=total_donated, subscribers=subscribers, total_traffic=total_traffic)
 
 # --- Error Handlers ---
 

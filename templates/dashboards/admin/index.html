@@ -53,7 +53,7 @@
         </div>
 
         <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-forest/20 transition-all">
                 <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -65,11 +65,20 @@
 
             <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-tech/20 transition-all">
                 <div class="w-12 h-12 bg-tech/10 rounded-xl flex items-center justify-center text-tech mb-6 group-hover:bg-tech group-hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                 </div>
-                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Grant Allocations</h4>
-                <p class="text-3xl font-black text-slate-900">40% Reserved</p>
-                <p class="text-xs text-slate-500 mt-4">Sustainability model active</p>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">System Traffic</h4>
+                <p class="text-3xl font-black text-slate-900">{{ "{:,}".format(total_traffic) }}</p>
+                <p class="text-xs text-slate-500 mt-4">Total page views</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-amber/20 transition-all">
+                <div class="w-12 h-12 bg-amber/10 rounded-xl flex items-center justify-center text-amber mb-6 group-hover:bg-amber group-hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Newsletter Subs</h4>
+                <p class="text-3xl font-black text-slate-900">{{ subscribers|length }}</p>
+                <p class="text-xs text-slate-500 mt-4">Active community network</p>
             </div>
 
             <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-leaf/20 transition-all">
@@ -77,47 +86,87 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                 </div>
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Donation Records</h4>
-                <p class="text-3xl font-black text-slate-900">{{ donations|length }} Transactions</p>
+                <p class="text-3xl font-black text-slate-900">{{ donations|length }}</p>
                 <p class="text-xs text-forest font-bold mt-4">All records synchronized</p>
             </div>
         </div>
 
-        <!-- Donation Records Table -->
-        <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100">
-            <h3 class="text-xl font-bold text-slate-900 mb-8">Recent Donation Records</h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
-                            <th class="pb-4">Timestamp</th>
-                            <th class="pb-4">Phone Number</th>
-                            <th class="pb-4">Amount (KSh)</th>
-                            <th class="pb-4">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-50">
-                        {% for id, donation in donations.items()|sort(attribute='1.timestamp', reverse=True) %}
-                        <tr class="group hover:bg-slate-50 transition-colors">
-                            <td class="py-4 text-sm text-slate-500">{{ donation.timestamp[:16].replace('T', ' ') }}</td>
-                            <td class="py-4 text-sm font-bold text-slate-900">{{ donation.phone }}</td>
-                            <td class="py-4 text-sm font-bold text-forest">KSh {{ "{:,.2f}".format(donation.amount) }}</td>
-                            <td class="py-4">
-                                <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
-                                    {% if donation.status == 'completed' %} bg-leaf/10 text-leaf 
-                                    {% elif donation.status == 'pending' %} bg-amber/10 text-amber
-                                    {% else %} bg-red-100 text-red-600 {% endif %}">
-                                    {{ donation.status }}
-                                </span>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        {% if not donations %}
-                        <tr>
-                            <td colspan="4" class="py-8 text-center text-slate-400 italic">No donation records found.</td>
-                        </tr>
-                        {% endif %}
-                    </tbody>
-                </table>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Donation Records Table -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-[500px]">
+                <h3 class="text-xl font-bold text-slate-900 mb-8 shrink-0">Recent Donation Records</h3>
+                <div class="overflow-y-auto flex-grow pr-2 custom-scrollbar">
+                    <table class="w-full text-left">
+                        <thead class="sticky top-0 bg-white z-10">
+                            <tr class="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                                <th class="pb-4">Timestamp</th>
+                                <th class="pb-4">Phone Number</th>
+                                <th class="pb-4">Amount (KSh)</th>
+                                <th class="pb-4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-50">
+                            {% for id, donation in donations.items()|sort(attribute='1.timestamp', reverse=True) %}
+                            <tr class="group hover:bg-slate-50 transition-colors">
+                                <td class="py-4 text-sm text-slate-500">{{ donation.timestamp[:16].replace('T', ' ') }}</td>
+                                <td class="py-4 text-sm font-bold text-slate-900">{{ donation.phone }}</td>
+                                <td class="py-4 text-sm font-bold text-forest">KSh {{ "{:,.2f}".format(donation.amount) }}</td>
+                                <td class="py-4">
+                                    <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider
+                                        {% if donation.status == 'completed' %} bg-leaf/10 text-leaf 
+                                        {% elif donation.status == 'pending' %} bg-amber/10 text-amber
+                                        {% else %} bg-red-100 text-red-600 {% endif %}">
+                                        {{ donation.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% if not donations %}
+                            <tr>
+                                <td colspan="4" class="py-8 text-center text-slate-400 italic">No donation records found.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Subscribers List -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-[500px]">
+                <div class="flex justify-between items-center mb-8 shrink-0">
+                    <h3 class="text-xl font-bold text-slate-900">Newsletter Subscribers</h3>
+                    {% set email_list = [] %}
+                    {% for id, sub in subscribers.items() %}
+                        {% set _ = email_list.append(sub.email) %}
+                    {% endfor %}
+                    <a href="mailto:?bcc={{ email_list|join(',') }}" class="px-4 py-2 bg-tech/10 text-tech hover:bg-tech hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-colors flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span>Email All</span>
+                    </a>
+                </div>
+                <div class="overflow-y-auto flex-grow pr-2 custom-scrollbar">
+                    <table class="w-full text-left">
+                        <thead class="sticky top-0 bg-white z-10">
+                            <tr class="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                                <th class="pb-4">Email Address</th>
+                                <th class="pb-4 text-right">Subscribed On</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-50">
+                            {% for id, sub in subscribers.items()|sort(attribute='1.timestamp', reverse=True) %}
+                            <tr class="group hover:bg-slate-50 transition-colors">
+                                <td class="py-4 text-sm font-bold text-slate-900">{{ sub.email }}</td>
+                                <td class="py-4 text-sm text-slate-500 text-right">{{ sub.timestamp[:10] }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% if not subscribers %}
+                            <tr>
+                                <td colspan="2" class="py-8 text-center text-slate-400 italic">No subscribers yet.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
