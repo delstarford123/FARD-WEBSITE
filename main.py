@@ -224,9 +224,31 @@ def donate():
 @app.route('/api/mpesa/callback', methods=['POST'])
 def mpesa_callback():
     data = request.json
-    # In a real app, parse and update the donation status in the database
-    # For now, we just acknowledge receipt
-    print("M-Pesa Callback received:", data)
+    if not data:
+        return {"ResultCode": 1, "ResultDesc": "Invalid Data"}
+    
+    stk_callback = data.get('Body', {}).get('stkCallback', {})
+    checkout_id = stk_callback.get('CheckoutRequestID')
+    result_code = stk_callback.get('ResultCode')
+    result_desc = stk_callback.get('ResultDesc')
+    
+    print(f"M-Pesa Callback received: {checkout_id}, Result: {result_code}")
+    
+    if checkout_id:
+        ref = db.reference('donations')
+        # Find the specific record by CheckoutRequestID
+        all_donations = ref.get() or {}
+        for key, val in all_donations.items():
+            if val.get('CheckoutRequestID') == checkout_id:
+                status = 'completed' if result_code == 0 else 'failed'
+                ref.child(key).update({
+                    'status': status,
+                    'result_desc': result_desc,
+                    'callback_data': stk_callback
+                })
+                print(f"Donation {key} updated to {status}")
+                break
+                
     return {"ResultCode": 0, "ResultDesc": "Accepted"}
 
 # --- Dashboards ---
@@ -243,8 +265,8 @@ def admin_dashboard():
     donations_ref = db.reference('donations')
     donations = donations_ref.get() or {}
     
-    # Calculate total
-    total_donated = sum(d.get('amount', 0) for d in donations.values() if d.get('status') in ['pending', 'completed'])
+    # Calculate total - ONLY count completed ones
+    total_donated = sum(d.get('amount', 0) for d in donations.values() if d.get('status') == 'completed')
     
     return render_template('dashboards/admin/index.html', donations=donations, total_donated=total_donated)
 
