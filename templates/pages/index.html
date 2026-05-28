@@ -14,30 +14,29 @@
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl space-y-8 animate-fade-in-up">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-leaf/10 border border-leaf/20 rounded-full">
+        <div class="max-w-4xl space-y-8 animate-fade-in-up">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
                 <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-leaf opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-leaf"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tech opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-tech"></span>
                 </span>
-                <span class="text-leaf text-xs font-bold uppercase tracking-widest">Bridging AI & Agroecology</span>
+                <span class="text-white text-[10px] font-black uppercase tracking-[0.3em]">African Innovation Ecosystem</span>
             </div>
             
-            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
-                Cultivating the <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-leaf to-tech">Digital Harvest.</span>
+            <h1 class="text-5xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight">
+                Building Africa’s <span class="text-transparent bg-clip-text bg-gradient-to-r from-leaf to-tech">Future.</span>
             </h1>
             
-            <p class="text-xl text-slate-300 leading-relaxed max-w-xl">
-                FARD leverages cutting-edge Artificial Intelligence to empower smallholder farmers, ensuring food security through sustainable, data-driven agroecology.
+            <p class="text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-2xl">
+                FARD is an African innovation and development ecosystem transforming food systems through intelligence, technology, research, and sustainable partnerships.
             </p>
             
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
-                <a href="{{ url_for('get_involved') }}" class="px-8 py-4 bg-leaf hover:bg-leaf/90 text-white font-bold rounded-xl shadow-2xl transition-all transform hover:-translate-y-1 text-center">
-                    Join the Movement
+                <a href="{{ url_for('get_involved') }}" class="px-10 py-5 bg-forest text-white font-black rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1 text-center uppercase tracking-widest text-xs border border-white/10">
+                    Join the Ecosystem
                 </a>
-                <a href="{{ url_for('pillars') }}" class="px-8 py-4 bg-white/5 border-2 border-white/20 hover:border-tech hover:text-tech text-white font-bold rounded-xl transition-all text-center backdrop-blur-sm">
-                    Our Technology
+                <a href="{{ url_for('about') }}" class="px-10 py-5 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-black rounded-2xl transition-all text-center backdrop-blur-md uppercase tracking-widest text-xs">
+                    Institutional Profile
                 </a>
             </div>
         </div>
