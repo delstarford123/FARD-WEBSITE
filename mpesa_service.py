@@ -10,7 +10,15 @@ class MpesaService:
         self.consumer_secret = os.getenv('MPESA_CONSUMER_SECRET', '').strip(' "\'')
         self.shortcode = os.getenv('MPESA_SHORTCODE', '').strip(' "\'')
         self.passkey = os.getenv('MPESA_PASSKEY', '').strip(' "\'')
-        self.base_url = "https://sandbox.safaricom.co.ke" # Change to production URL when ready
+        
+        # Switch to Production by default as requested
+        self.env = os.getenv('MPESA_ENV', 'production').lower()
+        if self.env == 'sandbox':
+            self.base_url = "https://sandbox.safaricom.co.ke"
+        else:
+            self.base_url = "https://api.safaricom.co.ke"
+        
+        print(f"M-Pesa Service initialized in {self.env} mode.")
 
     def get_access_token(self):
         # Validation for missing credentials
