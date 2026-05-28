@@ -80,14 +80,22 @@
          x-transition:enter-end="opacity-100 translate-y-0"
          class="md:hidden pb-6 border-t border-slate-100" 
          id="mobile-menu">
-        <div class="pt-4 space-y-2">
-            <a href="{{ url_for('about') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">About Us</a>
-            <a href="{{ url_for('pillars') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">Strategic Pillars</a>
-            <a href="{{ url_for('projects') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">Partnerships</a>
-            <a href="{{ url_for('transparency') }}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-forest rounded-lg">Research & Insights</a>
+        <div class="pt-4 space-y-2 px-4">
+            <a href="{{ url_for('about') }}" class="block py-3 text-base font-medium text-slate-600 hover:text-forest rounded-lg">About Us</a>
+            <a href="{{ url_for('pillars') }}" class="block py-3 text-base font-medium text-slate-600 hover:text-forest rounded-lg">Strategic Pillars</a>
+            <a href="{{ url_for('projects') }}" class="block py-3 text-base font-medium text-slate-600 hover:text-forest rounded-lg">Partnerships</a>
+            <a href="{{ url_for('transparency') }}" class="block py-3 text-base font-medium text-slate-600 hover:text-forest rounded-lg">Research & Insights</a>
             
-            <div class="mt-6 px-4 space-y-3">
-                <a href="{{ url_for('login') }}" class="block w-full text-center px-6 py-3 border-2 border-slate-200 text-forest font-bold rounded-xl">Login</a>
+            <div class="mt-6 space-y-3">
+                <a href="{{ url_for('donate') }}" class="block w-full text-center px-6 py-3 bg-amber text-white font-bold rounded-xl shadow-lg shadow-amber/20">Donate</a>
+                
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('farmer_dashboard') }}" class="block w-full text-center px-6 py-3 border-2 border-slate-200 text-forest font-bold rounded-xl">Dashboard</a>
+                    <a href="{{ url_for('logout') }}" class="block w-full text-center px-6 py-3 text-red-500 font-bold border-2 border-red-50 border-dashed rounded-xl">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="block w-full text-center px-6 py-3 border-2 border-slate-200 text-forest font-bold rounded-xl">Login</a>
+                {% endif %}
+
                 <a href="{{ url_for('get_involved') }}" class="block w-full text-center px-6 py-3 bg-forest text-white font-bold rounded-xl shadow-lg">Take Action</a>
             </div>
         </div>
