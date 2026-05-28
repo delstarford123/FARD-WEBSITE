@@ -18,20 +18,16 @@ class MpesaService:
             print(f"M-Pesa Config Error: Consumer Key ({'Set' if self.consumer_key else 'Missing'}) or Secret ({'Set' if self.consumer_secret else 'Missing'}) is missing.")
             return None
             
+        # DIAGNOSTIC: Print masked keys to help user verify Render environment variables
+        print(f"DEBUG: Using Consumer Key: {self.consumer_key[:4]}...{self.consumer_key[-4:]} (Length: {len(self.consumer_key)})")
+        print(f"DEBUG: Using Consumer Secret: {self.consumer_secret[:4]}...{self.consumer_secret[-4:]} (Length: {len(self.consumer_secret)})")
+            
         url = f"{self.base_url}/oauth/v1/generate?grant_type=client_credentials"
-        
-        # Manual header construction for Basic Auth to ensure transparency
-        auth_string = f"{self.consumer_key}:{self.consumer_secret}"
-        encoded_auth = base64.b64encode(auth_string.encode()).decode()
-        
-        headers = {
-            "Authorization": f"Basic {encoded_auth}",
-            "Content-Type": "application/json"
-        }
         
         try:
             print(f"Attempting M-Pesa token request to: {url}")
-            response = requests.get(url, headers=headers, timeout=30)
+            # Use requests built-in auth for standard Basic Auth implementation
+            response = requests.get(url, auth=(self.consumer_key, self.consumer_secret), timeout=30)
             
             if response.status_code == 200:
                 token = response.json().get('access_token')
