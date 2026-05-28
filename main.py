@@ -169,15 +169,18 @@ def logout():
 
 # --- Donations ---
 
-@app.route('/donate', methods=['POST'])
+@app.route('/donate', methods=['GET', 'POST'])
 def donate():
+    if request.method == 'GET':
+        return render_template('pages/donate.html')
+        
     phone = request.form.get('phone')
     amount = request.form.get('amount')
     
     # Simple validation
     if not phone or not amount:
         flash("Please provide both phone number and amount.", "error")
-        return redirect(url_for('get_involved'))
+        return redirect(url_for('donate'))
     
     # Format phone number to 254XXXXXXXXX
     phone = phone.strip().replace('+', '')
@@ -194,7 +197,7 @@ def donate():
         response = mpesa.stk_push(phone, amount_int, callback_url)
     except ValueError:
         flash("Invalid amount entered.", "error")
-        return redirect(url_for('get_involved'))
+        return redirect(url_for('donate'))
     
     if response.get('ResponseCode') == '0':
         # Save pending transaction to DB
@@ -211,7 +214,7 @@ def donate():
     else:
         flash(f"Donation failed: {response.get('CustomerMessage', 'Unknown error')}", "error")
         
-    return redirect(url_for('get_involved'))
+    return redirect(url_for('donate'))
 
 @app.route('/api/mpesa/callback', methods=['POST'])
 def mpesa_callback():
