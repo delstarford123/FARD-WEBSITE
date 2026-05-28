@@ -46,5 +46,8 @@ class MpesaService:
         }
 
         url = f"{self.base_url}/mpesa/stkpush/v1/processrequest"
-        response = requests.post(url, json=payload, headers=headers)
-        return response.json()
+        try:
+            response = requests.post(url, json=payload, headers=headers, timeout=30)
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": str(e), "CustomerMessage": "Connection to M-Pesa timed out."}

@@ -189,15 +189,20 @@ def donate():
     elif phone.startswith('7') or phone.startswith('1'):
         phone = '254' + phone
     
-    # Callback URL (needs to be publicly accessible, using a placeholder for now)
-    callback_url = "https://fard-website.requestcatcher.com/test" # Using a placeholder for sandbox testing
-    
+    # Callback URL (needs to be publicly accessible)
+    callback_url = "https://fard-website.onrender.com/api/mpesa/callback"
+
     try:
         amount_int = int(float(amount))
         response = mpesa.stk_push(phone, amount_int, callback_url)
-    except ValueError:
-        flash("Invalid amount entered.", "error")
+
+        # Log response for debugging in production logs
+        print(f"M-Pesa STK Push Response: {response}")
+    except Exception as e:
+        print(f"STK Push Exception: {str(e)}")
+        flash("An error occurred while connecting to M-Pesa. Please try again.", "error")
         return redirect(url_for('donate'))
+
     
     if response.get('ResponseCode') == '0':
         # Save pending transaction to DB
