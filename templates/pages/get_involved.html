@@ -16,7 +16,7 @@
             <rect width="100" height="100" fill="url(#grid)" />
         </svg>
     </div>
-    
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 class="text-leaf font-bold uppercase tracking-widest text-sm mb-4">Community & Growth</h2>
         <h1 class="text-4xl lg:text-6xl font-bold mb-6">Join the <span class="text-tech">Movement</span></h1>
@@ -26,10 +26,85 @@
     </div>
 </section>
 
+<!-- Donation Section -->
+<section class="py-24 bg-white" id="donate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-900 rounded-[3rem] p-8 lg:p-20 relative overflow-hidden text-white shadow-2xl">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-forest/20 blur-3xl rounded-full"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-tech/10 blur-3xl rounded-full"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block px-4 py-1 bg-amber/20 text-amber font-bold rounded-full text-xs uppercase tracking-wider">
+                        Support Our Mission
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold leading-tight">Your Contribution Fuels <span class="text-leaf">Grassroots Innovation.</span></h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Donations to FARD directly support community development activities, including STEAM coding camps for rural youth, precision agriculture training for cooperatives, and the maintenance of our AI-powered crop diagnostic tools.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-leaf/10 rounded-full flex items-center justify-center text-leaf">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-slate-200">100% Transparency via Audited Financials</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-leaf/10 rounded-full flex items-center justify-center text-leaf">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-slate-200">Direct Impact on Smallholder Farmers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-8 lg:p-12 rounded-[2.5rem] border border-white/10 shadow-xl" x-data="{ amount: 500 }">
+                    <h3 class="text-2xl font-bold mb-8">Donate via M-Pesa</h3>
+                    <form action="{{ url_for('donate') }}" method="POST" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Select Amount (KSh)</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" @click="amount = 200" :class="amount === 200 ? 'bg-leaf text-white' : 'bg-white/10 text-slate-300'" class="py-3 rounded-xl font-bold transition-all border border-white/10">200</button>
+                                <button type="button" @click="amount = 500" :class="amount === 500 ? 'bg-leaf text-white' : 'bg-white/10 text-slate-300'" class="py-3 rounded-xl font-bold transition-all border border-white/10">500</button>
+                                <button type="button" @click="amount = 1000" :class="amount === 1000 ? 'bg-leaf text-white' : 'bg-white/10 text-slate-300'" class="py-3 rounded-xl font-bold transition-all border border-white/10">1000</button>
+                            </div>
+                            <input type="number" name="amount" x-model="amount" class="w-full mt-4 bg-white/10 border border-white/10 rounded-xl px-5 py-4 text-white focus:ring-2 focus:ring-leaf outline-none" placeholder="Other Amount">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">M-Pesa Phone Number</label>
+                            <input type="text" name="phone" required class="w-full bg-white/10 border border-white/10 rounded-xl px-5 py-4 text-white focus:ring-2 focus:ring-leaf outline-none" placeholder="07XXXXXXXX">
+                        </div>
+
+                        <div class="relative" x-data="{ tooltip: false }">
+                            <button type="submit" 
+                                    @mouseenter="tooltip = true" 
+                                    @mouseleave="tooltip = false"
+                                    class="w-full py-5 bg-leaf hover:bg-leaf/90 text-white font-bold rounded-2xl shadow-lg shadow-leaf/20 transition-all transform hover:-translate-y-1">
+                                Donate Now
+                            </button>
+                            <!-- Tooltip -->
+                            <div x-show="tooltip" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 px-4 py-2 bg-slate-800 text-white text-xs font-medium rounded-lg shadow-xl whitespace-nowrap z-50">
+                                Donate to support community development activities.
+                                <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-800"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="mt-6 text-center text-xs text-slate-400">Secure transaction powered by Safaricom M-Pesa API</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Involvement Paths -->
 <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
-        
+
         <!-- Partner Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-6">

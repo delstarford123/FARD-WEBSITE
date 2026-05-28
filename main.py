@@ -3,12 +3,16 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials, auth, db
+from datetime import datetime
+
+from mpesa_service import MpesaService
 
 # Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'fard_secret_key_2026')
+mpesa = MpesaService()
 
 # --- Firebase Initialization ---
 cred_path = os.environ.get('FIREBASE_SERVICE_ACCOUNT', 'ServiceAccountKey.json')
@@ -163,6 +167,54 @@ def logout():
     flash("You have been logged out.", "info")
     return redirect(url_for('index'))
 
+# --- Donations ---
+
+@app.route('/donate', methods=['POST'])
+def donate():
+    phone = request.form.get('phone')
+    amount = request.form.get('amount')
+    
+    # Simple validation
+    if not phone or not amount:
+        flash("Please provide both phone number and amount.", "error")
+        return redirect(url_for('get_involved'))
+    
+    # Format phone number to 254XXXXXXXXX
+    if phone.startswith('0'):
+        phone = '254' + phone[1:]
+    elif phone.startswith('+254'):
+        phone = phone[1:]
+    
+    # Callback URL (needs to be publicly accessible, using a placeholder for now)
+    callback_url = request.url_root + 'api/mpesa/callback'
+    
+    response = mpesa.stk_push(phone, amount, callback_url)
+    
+    if response.get('ResponseCode') == '0':
+        # Save pending transaction to DB
+        ref = db.reference('donations')
+        ref.push({
+            'phone': phone,
+            'amount': float(amount),
+            'status': 'pending',
+            'timestamp': datetime.now().isoformat(),
+            'MerchantRequestID': response.get('MerchantRequestID'),
+            'CheckoutRequestID': response.get('CheckoutRequestID')
+        })
+        flash("Donation initiated! Please check your phone for the M-Pesa prompt.", "success")
+    else:
+        flash(f"Donation failed: {response.get('CustomerMessage', 'Unknown error')}", "error")
+        
+    return redirect(url_for('get_involved'))
+
+@app.route('/api/mpesa/callback', methods=['POST'])
+def mpesa_callback():
+    data = request.json
+    # In a real app, parse and update the donation status in the database
+    # For now, we just acknowledge receipt
+    print("M-Pesa Callback received:", data)
+    return {"ResultCode": 0, "ResultDesc": "Accepted"}
+
 # --- Dashboards ---
 
 @app.route('/dashboard/farmer')
@@ -173,8 +225,14 @@ def farmer_dashboard():
 
 @app.route('/dashboard/admin')
 def admin_dashboard():
-    # Add admin check here
-    return render_template('dashboards/admin/index.html')
+    # Fetch all donations
+    donations_ref = db.reference('donations')
+    donations = donations_ref.get() or {}
+    
+    # Calculate total
+    total_donated = sum(d.get('amount', 0) for d in donations.values() if d.get('status') in ['pending', 'completed'])
+    
+    return render_template('dashboards/admin/index.html', donations=donations, total_donated=total_donated)
 
 # --- Error Handlers ---
 
