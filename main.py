@@ -5,6 +5,7 @@ import firebase_admin
 from firebase_admin import credentials, auth, db
 from datetime import datetime
 
+from flask_mail import Mail, Message
 from mpesa_service import MpesaService
 
 # Load environment variables from .env file
@@ -12,6 +13,16 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'fard_secret_key_2026')
+
+# --- Email Configuration ---
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = ('FARD Ecosystem', os.environ.get('MAIL_USERNAME'))
+mail = Mail(app)
+
 mpesa = MpesaService()
 
 # --- Firebase Initialization ---
@@ -297,14 +308,52 @@ def admin_dashboard():
     total_donated = sum(d.get('amount', 0) for d in donations.values() if d.get('status') == 'completed')
     
     # Fetch subscribers
-    subscribers_ref = db.reference('subscribers')
-    subscribers = subscribers_ref.get() or {}
+    subscribers_raw = db.reference('subscribers').get() or {}
+    if isinstance(subscribers_raw, list):
+        # Convert list to dict with indices as keys
+        subscribers = {str(i): sub for i, sub in enumerate(subscribers_raw) if sub}
+    else:
+        subscribers = subscribers_raw
     
     # Fetch traffic
     traffic_ref = db.reference('public_stats/total_page_views')
     total_traffic = traffic_ref.get() or 0
     
     return render_template('dashboards/admin/index.html', donations=donations, total_donated=total_donated, subscribers=subscribers, total_traffic=total_traffic)
+
+@app.route('/admin/send_bulk_email', methods=['POST'])
+def send_bulk_email():
+    # In a real app, verify admin session here
+    subject = request.form.get('subject')
+    body = request.form.get('body')
+    
+    if not subject or not body:
+        flash("Subject and body are required to send an email.", "error")
+        return redirect(url_for('admin_dashboard'))
+        
+    subscribers_ref = db.reference('subscribers')
+    subscribers_data = subscribers_ref.get() or {}
+    
+    email_list = []
+    if isinstance(subscribers_data, dict):
+        email_list = [sub.get('email') for sub in subscribers_data.values() if sub and isinstance(sub, dict) and sub.get('email')]
+    elif isinstance(subscribers_data, list):
+        email_list = [sub.get('email') for sub in subscribers_data if sub and isinstance(sub, dict) and sub.get('email')]
+    
+    if not email_list:
+        flash("No subscribers found to email.", "error")
+        return redirect(url_for('admin_dashboard'))
+
+    try:
+        msg = Message(subject, bcc=email_list)
+        msg.body = body
+        # You could also use msg.html for HTML emails
+        mail.send(msg)
+        flash(f"Successfully sent email to {len(email_list)} subscribers.", "success")
+    except Exception as e:
+        flash(f"Failed to send email: {str(e)}", "error")
+        
+    return redirect(url_for('admin_dashboard'))
 
 # --- Error Handlers ---
 

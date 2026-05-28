@@ -2,3 +2,5 @@ Flask==3.0.3
 python-dotenv==1.0.1
 gunicorn==21.2.0
 firebase-admin==6.5.0
+
+Flask-Mail==0.10.0

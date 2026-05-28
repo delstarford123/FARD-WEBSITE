@@ -1,93 +1,150 @@
 {% extends 'base.html' %}
 
-{% block title %}Resource Center - FARD{% endblock %}
+{% block title %}Advanced STEAM & E-Learning Academy - FARD{% endblock %}
 
 {% block content %}
-<!-- Header Section -->
-<section class="bg-forest pt-32 pb-20 relative overflow-hidden text-white">
-    <!-- Decorative Overlay -->
-    <div class="absolute inset-0 opacity-10">
-        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.1"/>
-                </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
+<!-- Academy Header Section -->
+<section class="bg-forest pt-40 pb-32 relative overflow-hidden text-white">
+    <!-- Code Background Overlay -->
+    <div class="absolute inset-0 opacity-5">
+        <pre class="text-[8px] font-mono leading-none whitespace-pre-wrap select-none">
+{% for i in range(100) %}
+function optimizeYield(soilData, moisture, nitrogen) { return (moisture * 0.4) + (nitrogen * 0.6); }
+{% endfor %}
+        </pre>
     </div>
     
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 class="text-4xl lg:text-6xl font-bold mb-6">Knowledge <span class="text-tech">Hub</span></h1>
-        <p class="text-slate-200 max-w-2xl mx-auto text-lg leading-relaxed">
-            Access our specialized curriculum, field manuals, and official organizational reports to stay informed and empowered.
-        </p>
-    </div>
-</section>
-
-<!-- Resources Grid Section -->
-<section class="py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            
-            <!-- Learning Center Card -->
-            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-full">
-                <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-tech">🎓</div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-6">Learning Center</h3>
-                <ul class="space-y-4 flex-grow">
-                    {% for item in [
-                        ('Smart Agriculture Guide (PDF)', '#', '🚜'),
-                        ('Safe Agrochemical Handling', '#', '🧪'),
-                        ('STEAM Tutorial: Intro to Robotics', '#', '🤖')
-                    ] %}
-                    <li>
-                        <a href="{{ item[1] }}" class="group flex items-center space-x-4 p-4 bg-slate-50 rounded-2xl hover:bg-forest hover:text-white transition-all duration-300">
-                            <span class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">{{ item[2] }}</span>
-                            <span class="font-semibold text-sm">{{ item[0] }}</span>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8">
+            <h2 class="text-tech font-bold uppercase tracking-[0.4em] text-xs">FARD Digital Academy</h2>
+            <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight">Advanced <br/><span class="text-tech">STEAM & E-Learning</span></h1>
+            <p class="text-xl text-slate-300 leading-relaxed">
+                Turn agricultural curiosity into digital mastery. Access gamified coding modules, earn verifiable certifications, and master AI-driven agroecology.
+            </p>
+            {% if not session.get('user_id') %}
+            <div class="pt-4 flex items-center space-x-4">
+                <a href="{{ url_for('register') }}" class="px-8 py-4 bg-tech hover:bg-white hover:text-tech text-forest font-black rounded-xl shadow-lg transition-all transform hover:-translate-y-1">Start Learning Free</a>
             </div>
-
-            <!-- Official Downloads Card -->
-            <div class="bg-white p-10 lg:p-12 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col h-full">
-                <div class="w-16 h-16 bg-leaf/10 rounded-2xl flex items-center justify-center text-3xl mb-8 text-leaf">📋</div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-6">Official Downloads</h3>
-                <ul class="space-y-4 flex-grow">
-                    <li>
-                        <a href="/static/documents/governance/constitution.pdf" class="group flex items-center justify-between p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 hover:border-forest hover:bg-forest/5 transition-all">
-                            <div class="flex items-center space-x-4">
-                                <span class="text-2xl text-slate-400 group-hover:text-forest transition-colors italic">📜</span>
-                                <span class="font-bold text-slate-700 group-hover:text-forest transition-colors">FARD Constitution</span>
-                            </div>
-                            <span class="text-xs font-black uppercase text-slate-400 group-hover:text-forest transition-colors">PDF &darr;</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/static/documents/reports/annual_report_2025.pdf" class="group flex items-center justify-between p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 hover:border-forest hover:bg-forest/5 transition-all">
-                            <div class="flex items-center space-x-4">
-                                <span class="text-2xl text-slate-400 group-hover:text-forest transition-colors italic">📊</span>
-                                <span class="font-bold text-slate-700 group-hover:text-forest transition-colors">Annual Report 2025</span>
-                            </div>
-                            <span class="text-xs font-black uppercase text-slate-400 group-hover:text-forest transition-colors">PDF &darr;</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
+            {% endif %}
+        </div>
+        <div class="hidden lg:block relative h-full min-h-[400px]">
+            <div class="absolute inset-0 bg-gradient-to-r from-forest to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover rounded-3xl opacity-50 grayscale mix-blend-overlay">
         </div>
     </div>
 </section>
 
-<!-- Support/Contact Section -->
+<!-- Gamified Learning Tracks -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-4 mb-20">
+            <h2 class="text-amber font-bold uppercase tracking-[0.3em] text-sm">Gamified Modules</h2>
+            <h3 class="text-4xl font-black text-slate-900">Choose Your Innovation Track</h3>
+            <p class="text-slate-500 max-w-2xl mx-auto text-lg">Complete tasks, earn badges on the public FARD leaderboard, and automatically generate verifiable PDF Certificates.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Track 1 -->
+            <div class="bg-white rounded-[3rem] p-10 shadow-xl border border-slate-100 flex flex-col group hover:border-tech/50 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-tech/10 blur-3xl rounded-full"></div>
+                <div class="w-16 h-16 bg-tech/10 text-tech rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">💻</div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-4">Python for Agriculture</h4>
+                <p class="text-sm text-slate-500 mb-8 flex-grow">Learn to analyze farm yield data and build predictive models using Python and Pandas.</p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        <span>Progress</span>
+                        <span>0%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="w-0 h-full bg-tech rounded-full"></div>
+                    </div>
+                </div>
+                <a href="{{ url_for('login') if not session.get('user_id') else '#' }}" class="w-full py-4 text-center border-2 border-slate-100 text-slate-600 font-bold rounded-xl hover:bg-tech hover:text-white hover:border-tech transition-all">Begin Module</a>
+            </div>
+
+            <!-- Track 2 -->
+            <div class="bg-slate-900 rounded-[3rem] p-10 shadow-2xl border border-slate-800 flex flex-col group hover:border-leaf/50 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/20 blur-3xl rounded-full"></div>
+                <div class="w-16 h-16 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">🤖</div>
+                <h4 class="text-2xl font-bold text-white mb-4">Agri-Robotics 101</h4>
+                <p class="text-sm text-slate-400 mb-8 flex-grow">Introduction to automated irrigation systems, Arduino programming, and soil sensors.</p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
+                        <span>Progress</span>
+                        <span class="text-leaf">25%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="w-1/4 h-full bg-leaf rounded-full shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                    </div>
+                </div>
+                <a href="{{ url_for('login') if not session.get('user_id') else '#' }}" class="w-full py-4 text-center bg-leaf text-white font-bold rounded-xl hover:bg-leaf/90 transition-all">Continue Learning</a>
+            </div>
+
+            <!-- Track 3 -->
+            <div class="bg-white rounded-[3rem] p-10 shadow-xl border border-slate-100 flex flex-col group hover:border-amber/50 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-amber/10 blur-3xl rounded-full"></div>
+                <div class="w-16 h-16 bg-amber/10 text-amber rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📊</div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-4">Market Intelligence</h4>
+                <p class="text-sm text-slate-500 mb-8 flex-grow">Understand value chains, digital ledgers, and how to utilize data dashboards for cooperative sales.</p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        <span>Progress</span>
+                        <span>0%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="w-0 h-full bg-amber rounded-full"></div>
+                    </div>
+                </div>
+                <a href="{{ url_for('login') if not session.get('user_id') else '#' }}" class="w-full py-4 text-center border-2 border-slate-100 text-slate-600 font-bold rounded-xl hover:bg-amber hover:text-white hover:border-amber transition-all">Begin Module</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certification & Camps -->
 <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 text-center space-y-8">
-        <h3 class="text-3xl font-bold text-slate-900">Need specific documentation?</h3>
-        <p class="text-slate-600">Our research team publishes new findings and manuals quarterly. Reach out for specific inquiries.</p>
-        <a href="{{ url_for('contact') }}" class="inline-block bg-forest text-white font-bold px-10 py-4 rounded-xl hover:bg-forest/90 transition-all transform hover:-translate-y-1 shadow-lg shadow-forest/20">
-            Request Info
-        </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Certificate Demo -->
+            <div class="bg-forest p-12 rounded-[4rem] text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+                <h3 class="text-3xl font-black mb-6">Verified Digital Certificates</h3>
+                <p class="text-slate-300 leading-relaxed mb-8">
+                    Upon completing a module, the system automatically generates a branded PDF Certificate of Completion. Use this to prove your technical competence to investors, employers, and cooperative boards.
+                </p>
+                <div class="p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl">🏅</div>
+                        <div>
+                            <p class="font-bold text-sm">FARD Agri-Tech Level 1</p>
+                            <p class="text-xs text-tech font-mono">ID: FARD-CERT-2026X9</p>
+                        </div>
+                    </div>
+                    <button class="text-xs font-bold uppercase tracking-widest border-b border-tech text-tech pb-1 hover:text-white transition-colors">Verify</button>
+                </div>
+            </div>
+
+            <!-- Bootcamp Registration -->
+            <div class="bg-slate-50 p-12 rounded-[4rem] border border-slate-100 relative overflow-hidden shadow-xl">
+                <h3 class="text-3xl font-black text-slate-900 mb-6">STEAM Camp Portal</h3>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    Join our hands-on rural bootcamps. Register for upcoming in-person coding and robotics sessions hosted in Kakamega and surrounding regions.
+                </p>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name" class="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-tech">
+                        <input type="text" placeholder="Last Name" class="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-tech">
+                    </div>
+                    <input type="email" placeholder="Email Address" class="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-tech">
+                    <select class="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-tech text-slate-500">
+                        <option>Select Bootcamp Location</option>
+                        <option>Kakamega - Tech Hub</option>
+                        <option>Nairobi - Dev Center</option>
+                    </select>
+                    <button type="button" onclick="alert('Digital KYC & Onboarding required. Redirecting to Profile creation...')" class="w-full py-4 bg-forest text-white font-black rounded-xl hover:bg-tech transition-colors uppercase tracking-widest text-xs mt-4">Register for Camp</button>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

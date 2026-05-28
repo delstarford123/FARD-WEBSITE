@@ -9,23 +9,27 @@
         <div class="absolute top-0 right-0 w-32 h-32 bg-tech/10 blur-3xl rounded-full"></div>
 
         <div class="p-8 relative z-10">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Executive Control</h2>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Executive Control (Wing A)</h2>
             <nav class="space-y-2">
                 <a href="#" class="flex items-center space-x-3 p-4 bg-white/10 rounded-2xl font-bold transition-all border border-white/10">    
                     <svg class="w-5 h-5 text-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                    <span>Overview</span>
+                    <span>Master Dashboard</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all"> 
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>Financials (60/40)</span>
+                    <span>Financial Ledger</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all"> 
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <span>Member Management</span>
+                    <span>Member KYC & RBAC</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all"> 
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span>Digital Voting Portal</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 p-4 text-white/60 hover:text-white hover:bg-white/5 rounded-2xl transition-all"> 
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    <span>System Reports</span>
+                    <span>Automated PDF Reports</span>
                 </a>
             </nav>
         </div>
@@ -89,6 +93,44 @@
                 <p class="text-3xl font-black text-slate-900">{{ donations|length }}</p>
                 <p class="text-xs text-forest font-bold mt-4">All records synchronized</p>
             </div>
+        </div>
+
+        <!-- Bulk Email Composer -->
+        <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100">
+            <div class="flex items-center space-x-4 mb-8">
+                <div class="w-12 h-12 bg-tech/10 rounded-2xl flex items-center justify-center text-tech">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Bulk Email Communications</h3>
+                    <p class="text-sm text-slate-500">Dispatch updates to all registered newsletter subscribers.</p>
+                </div>
+            </div>
+
+            <form action="/admin/send_bulk_email" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Subject</label>
+                        <input type="text" name="subject" required placeholder="e.g., FARD Weekly Update - Smart Farming Insights" 
+                               class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-tech/20 focus:border-tech outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Message Body</label>
+                        <textarea name="body" rows="6" required placeholder="Write your community update here..." 
+                                  class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-tech/20 focus:border-tech outline-none transition-all resize-none"></textarea>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                    <div class="flex items-center space-x-3 text-amber font-medium">
+                        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <span class="text-xs">Warning: This will send an email to {{ subscribers|length }} active subscribers.</span>
+                    </div>
+                    <button type="submit" class="w-full md:w-auto px-8 py-4 bg-forest text-white font-black rounded-2xl shadow-lg hover:shadow-forest/30 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center space-x-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <span>Dispatch Bulk Email</span>
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">

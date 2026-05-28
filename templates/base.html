@@ -76,6 +76,35 @@
 
     <!-- Main Content Area -->
     <main id="main-content" role="main" class="min-h-screen">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="fixed top-24 right-8 z-50 space-y-4 max-w-md w-full">
+                    {% for category, message in messages %}
+                        <div x-data="{ show: true }" x-show="show" x-transition 
+                             class="p-4 rounded-2xl shadow-2xl border flex items-start space-x-3 
+                             {% if category == 'success' %} bg-leaf/10 border-leaf text-forest 
+                             {% elif category == 'error' %} bg-red-50 border-red-200 text-red-700
+                             {% else %} bg-tech/10 border-tech text-cyber {% endif %}">
+                            <div class="shrink-0 mt-0.5">
+                                {% if category == 'success' %}
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                {% elif category == 'error' %}
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                {% else %}
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                {% endif %}
+                            </div>
+                            <div class="flex-grow text-sm font-medium">
+                                {{ message }}
+                            </div>
+                            <button @click="show = false" class="shrink-0 hover:opacity-50">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </main>
 
