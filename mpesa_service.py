@@ -5,18 +5,24 @@ from datetime import datetime
 
 class MpesaService:
     def __init__(self):
-        self.consumer_key = os.getenv('MPESA_CONSUMER_KEY')
-        self.consumer_secret = os.getenv('MPESA_CONSUMER_SECRET')
-        self.shortcode = os.getenv('MPESA_SHORTCODE')
-        self.passkey = os.getenv('MPESA_PASSKEY')
+        # Strip any accidental quotes or whitespace from environment variables
+        self.consumer_key = os.getenv('MPESA_CONSUMER_KEY', '').strip(' "\'')
+        self.consumer_secret = os.getenv('MPESA_CONSUMER_SECRET', '').strip(' "\'')
+        self.shortcode = os.getenv('MPESA_SHORTCODE', '').strip(' "\'')
+        self.passkey = os.getenv('MPESA_PASSKEY', '').strip(' "\'')
         self.base_url = "https://sandbox.safaricom.co.ke" # Change to production URL when ready
 
     def get_access_token(self):
         url = f"{self.base_url}/oauth/v1/generate?grant_type=client_credentials"
-        response = requests.get(url, auth=(self.consumer_key, self.consumer_secret))
-        if response.status_code == 200:
-            return response.json()['access_token']
-        return None
+        try:
+            response = requests.get(url, auth=(self.consumer_key, self.consumer_secret), timeout=30)
+            if response.status_code == 200:
+                return response.json()['access_token']
+            print(f"M-Pesa Token Error ({response.status_code}): {response.text}")
+            return None
+        except Exception as e:
+            print(f"M-Pesa Token Exception: {str(e)}")
+            return None
 
     def stk_push(self, phone_number, amount, callback_url):
         access_token = self.get_access_token()
