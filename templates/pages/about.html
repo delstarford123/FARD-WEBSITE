@@ -169,23 +169,36 @@
                 <span class="bg-forest text-white text-xs px-2 py-1 rounded">Wing A</span>
                 <span>Executive Management Committee</span>
             </h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {{ leadership_card("Sobani Ayanda", "Chairperson", "The principal executive officer of FARD. Presides over all board and general meetings, representing the FS wing.", url_for('static', filename='images/team/FARMERMAN.jpeg')) }}
                 {{ leadership_card("Delstarford Isaiah", "Vice Chairperson", "Secondary executive officer representing DSW. Chief technology strategist overseeing AI-powered software integration.", url_for('static', filename='images/team/founder1.jpeg')) }}
                 {{ leadership_card("Charity Wanjiro", "Secretary", "Administrative and compliance anchor. Manages official correspondence, minutes, and the member register.", url_for('static', filename='images/team/Charity Wanjiro.jpeg')) }}
+                {{ leadership_card("Caren Taiget", "Vice Secretary", "Supports the Secretary in managing official records, correspondence, and administrative compliance for the organization.", url_for('static', filename='images/team/Caren Taiget.jpeg')) }}
+            </div>
+        </div>
+
+        <div class="mb-24">
+            <h4 class="text-slate-900 font-bold text-2xl border-b-2 border-slate-100 pb-4 mb-12 flex items-center space-x-3">
+                <span class="bg-tech text-white text-xs px-2 py-1 rounded">Wing B</span>
+                <span>Specialized Board of Directors</span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ leadership_card("Collins Rao", "Director of Health", "Ensures occupational safety and promotes community health awareness.", url_for('static', filename='images/team/COLLINS.jpeg')) }}
+                {{ leadership_card("Dr. Ferdinand Lubobi", "Director of Research", "Leads data collection and scientific intelligence for AI systems.", url_for('static', filename='images/team/founder1.jpeg')) }}
+                {{ leadership_card("Chris Marvin", "Director of Agriculture", "Lead agronomist implementing precision farming techniques across cooperatives.", url_for('static', filename='images/team/FARMERMAN 2.jpeg')) }}
+                {{ leadership_card("Omar Kasera", "Director of Software Dev", "Technical project manager building AI software and high-availability data platforms.", url_for('static', filename='images/team/founder1.jpeg')) }}
+                {{ leadership_card("Christine Andama", "Dir. Disability & Mainstreaming", "Ensures inclusive development, making FARD's initiatives accessible to persons with disabilities.", url_for('static', filename='images/team/Christine Andama.jpeg')) }}
+                {{ leadership_card("Bobby Ashley", "Dir. Sports & Fitness", "Coordinates community sports and fitness programs to promote health and unity.", url_for('static', filename='images/team/Bobby Ashely.jpeg')) }}
             </div>
         </div>
 
         <div>
             <h4 class="text-slate-900 font-bold text-2xl border-b-2 border-slate-100 pb-4 mb-12 flex items-center space-x-3">
-                <span class="bg-tech text-white text-xs px-2 py-1 rounded">Wing B</span>
-                <span>Specialized Board of Directors</span>
+                <span class="bg-leaf text-white text-xs px-2 py-1 rounded">Wing C</span>
+                <span>Community Operations & Outreach</span>
             </h4>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {{ leadership_card("Collins Rao", "Director of Health", "Ensures occupational safety and promotes community health awareness.", url_for('static', filename='images/team/COLLINS.jpeg')) }}
-                {{ leadership_card("Dr. Ferdinand Lubobi", "Director of Research", "Leads data collection and scientific intelligence for AI systems.", url_for('static', filename='images/team/founder.jpg')) }}
-                {{ leadership_card("Chris Marvin", "Director of Agriculture", "Lead agronomist implementing precision farming techniques across cooperatives.", url_for('static', filename='images/team/FARMERMAN 2.jpeg')) }}
-                {{ leadership_card("Omar Kasera", "Director of Software Dev", "Technical project manager building AI software and high-availability data platforms.", url_for('static', filename='images/team/founder.jpg')) }}
+                {{ leadership_card("Ken Miller", "Wing C Member", "Dedicated to grassroots mobilization and community-led initiatives within the FARD framework.", url_for('static', filename='images/team/Ken Miller.jpeg')) }}
             </div>
         </div>
     </div>
