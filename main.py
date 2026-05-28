@@ -180,15 +180,21 @@ def donate():
         return redirect(url_for('get_involved'))
     
     # Format phone number to 254XXXXXXXXX
+    phone = phone.strip().replace('+', '')
     if phone.startswith('0'):
         phone = '254' + phone[1:]
-    elif phone.startswith('+254'):
-        phone = phone[1:]
+    elif phone.startswith('7') or phone.startswith('1'):
+        phone = '254' + phone
     
     # Callback URL (needs to be publicly accessible, using a placeholder for now)
-    callback_url = request.url_root + 'api/mpesa/callback'
+    callback_url = "https://fard-website.requestcatcher.com/test" # Using a placeholder for sandbox testing
     
-    response = mpesa.stk_push(phone, amount, callback_url)
+    try:
+        amount_int = int(float(amount))
+        response = mpesa.stk_push(phone, amount_int, callback_url)
+    except ValueError:
+        flash("Invalid amount entered.", "error")
+        return redirect(url_for('get_involved'))
     
     if response.get('ResponseCode') == '0':
         # Save pending transaction to DB
