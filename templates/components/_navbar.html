@@ -35,7 +35,16 @@
                         <div class="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-slate-800"></div>
                     </div>
                 </div>
-                <a href="{{ url_for('login') }}" class="px-5 py-2.5 text-forest font-bold hover:text-tech transition-colors">Login</a>
+
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('farmer_dashboard') }}" class="px-5 py-2.5 text-forest font-bold hover:text-tech transition-colors">Dashboard</a>
+                    <a href="{{ url_for('logout') }}" class="text-slate-400 hover:text-red-500 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="px-5 py-2.5 text-forest font-bold hover:text-tech transition-colors">Login</a>
+                {% endif %}
+                
                 <a href="{{ url_for('get_involved') }}" class="px-6 py-2.5 bg-forest hover:bg-forest/90 text-white font-bold rounded-full shadow-lg shadow-forest/20 transition-all duration-300 transform hover:-translate-y-0.5">
                     Take Action
                 </a>
