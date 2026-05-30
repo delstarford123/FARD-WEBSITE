@@ -5,8 +5,10 @@
 {% block content %}
 <div class="min-h-screen bg-slate-50 flex flex-col lg:flex-row">
     <!-- Dashboard Sidebar -->
-    <aside class="w-full lg:w-72 bg-forest text-white lg:min-h-screen relative overflow-hidden flex flex-col">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-tech/10 blur-3xl rounded-full"></div>
+    <aside class="w-full lg:w-72 text-white lg:min-h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=600&q=80');">
+        <!-- Forest Green Tint Overlay -->
+        <div class="absolute inset-0 bg-forest/92 backdrop-blur-[1px]"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-tech/20 blur-3xl rounded-full"></div>
         
         <div class="p-8 relative z-10">
             <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Volunteer Hub</h2>
@@ -67,9 +69,11 @@
         <!-- Dashboard Content -->
         <main class="p-8 lg:p-12 space-y-12">
             <!-- Welcome Header -->
-            <div class="bg-forest rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-forest/20">
-                <div class="absolute top-0 right-0 w-64 h-full bg-tech opacity-10 skew-x-12 translate-x-1/2"></div>
-                <div class="relative z-10 space-y-6">
+            <div class="bg-forest rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-forest/20 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1588075592445-94d23e53eed9?auto=format&fit=crop&w=1000&q=80');">
+                <!-- Forest brand overlay for high text legibility -->
+                <div class="absolute inset-0 bg-forest/85 backdrop-blur-[1px]"></div>
+                <div class="absolute top-0 right-0 w-64 h-full bg-tech opacity-10 skew-x-12 translate-x-1/2 z-10"></div>
+                <div class="relative z-20 space-y-6">
                     <h2 class="text-3xl lg:text-4xl font-bold">Good morning, John!</h2>
                     <p class="text-slate-200 max-w-xl text-lg leading-relaxed">You've contributed <strong>24 hours</strong> this month to the Mahiakalo Agroecology Project. Keep up the great work!</p>
                     <div class="flex flex-wrap gap-4 pt-4">

@@ -5,8 +5,10 @@
 {% block content %}
 <div class="min-h-screen bg-slate-50 flex flex-col lg:flex-row">
     <!-- Dashboard Sidebar -->
-    <aside class="w-full lg:w-72 bg-forest text-white lg:min-h-screen relative overflow-hidden flex flex-col">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/10 blur-3xl rounded-full"></div>
+    <aside class="w-full lg:w-72 text-white lg:min-h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80');">
+        <!-- Forest Green Tint Overlay -->
+        <div class="absolute inset-0 bg-forest/92 backdrop-blur-[1px]"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/20 blur-3xl rounded-full"></div>
         
         <div class="p-8 relative z-10">
             <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Farmer Portal</h2>
@@ -82,9 +84,11 @@
         </div>
 
         <!-- Quick Tips/Resource Alert -->
-        <div class="bg-forest p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/20 blur-3xl rounded-full group-hover:bg-leaf/30 transition-colors"></div>
-            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="bg-forest p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80');">
+            <!-- Brand overlay for robust contrast -->
+            <div class="absolute inset-0 bg-forest/85 backdrop-blur-[1px]"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-leaf/20 blur-3xl rounded-full group-hover:bg-leaf/30 transition-colors z-10"></div>
+            <div class="relative z-20 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="space-y-4 text-center md:text-left">
                     <h3 class="text-2xl font-bold">New Training Material Available!</h3>
                     <p class="text-slate-200">The "Safe Agrochemical Handling Guide" is now available in your resources.</p>

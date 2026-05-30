@@ -5,8 +5,10 @@
 {% block content %}
 <div class="min-h-screen bg-slate-50 flex flex-col lg:flex-row">
     <!-- Dashboard Sidebar -->
-    <aside class="w-full lg:w-72 bg-forest text-white lg:min-h-screen relative overflow-hidden flex flex-col">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-tech/10 blur-3xl rounded-full"></div>
+    <aside class="w-full lg:w-72 text-white lg:min-h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1527842891421-42eec6e703ea?auto=format&fit=crop&w=600&q=80');">
+        <!-- Forest Green Tint Overlay -->
+        <div class="absolute inset-0 bg-forest/92 backdrop-blur-[1px]"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-tech/20 blur-3xl rounded-full"></div>
 
         <div class="p-8 relative z-10">
             <h2 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-10">Executive Control (Wing A)</h2>
@@ -58,8 +60,8 @@
 
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-forest/20 transition-all">
-                <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-forest/30 hover:scale-[1.03] hover:shadow-xl transition-all duration-300">
+                <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center text-forest mb-6 group-hover:bg-forest group-hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Total Donations</h4>
@@ -67,8 +69,8 @@
                 <p class="text-xs text-leaf font-bold mt-4">Growth through community trust</p>
             </div>
 
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-tech/20 transition-all">
-                <div class="w-12 h-12 bg-tech/10 rounded-xl flex items-center justify-center text-tech mb-6 group-hover:bg-tech group-hover:text-white transition-colors">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-tech/30 hover:scale-[1.03] hover:shadow-xl transition-all duration-300">
+                <div class="w-12 h-12 bg-tech/10 rounded-xl flex items-center justify-center text-tech mb-6 group-hover:bg-tech group-hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                 </div>
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">System Traffic</h4>
@@ -76,8 +78,8 @@
                 <p class="text-xs text-slate-500 mt-4">Total page views</p>
             </div>
 
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-amber/20 transition-all">
-                <div class="w-12 h-12 bg-amber/10 rounded-xl flex items-center justify-center text-amber mb-6 group-hover:bg-amber group-hover:text-white transition-colors">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-amber/30 hover:scale-[1.03] hover:shadow-xl transition-all duration-300">
+                <div class="w-12 h-12 bg-amber/10 rounded-xl flex items-center justify-center text-amber mb-6 group-hover:bg-amber group-hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Newsletter Subs</h4>
@@ -85,8 +87,8 @@
                 <p class="text-xs text-slate-500 mt-4">Active community network</p>
             </div>
 
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-leaf/20 transition-all">
-                <div class="w-12 h-12 bg-leaf/10 rounded-xl flex items-center justify-center text-leaf mb-6 group-hover:bg-leaf group-hover:text-white transition-colors">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 group hover:border-leaf/30 hover:scale-[1.03] hover:shadow-xl transition-all duration-300">
+                <div class="w-12 h-12 bg-leaf/10 rounded-xl flex items-center justify-center text-leaf mb-6 group-hover:bg-leaf group-hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                 </div>
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Donation Records</h4>
